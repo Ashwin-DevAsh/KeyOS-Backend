@@ -15,9 +15,9 @@ services:
       - 80:80
       - 443:443
 
-    # volumes:
-    #   - ./certbot/conf:/etc/nginx/ssl
-    #   - ./certbot/data:/var/www/certbot
+    volumes:
+      - ./certbot/conf:/etc/nginx/ssl
+      - ./certbot/data:/var/www/certbot
 
   certbot:
     image: certbot/certbot:latest
