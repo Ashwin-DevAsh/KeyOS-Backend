@@ -15,6 +15,8 @@ var setPolicyData = async (req, res) => {
   var policyData = req.body["policyData"];
   var id = req.body["id"];
 
+  console.log(req.body);
+
   if (!policyData || !id) {
     console.log("Invalid body");
     res.send({ result: "failed" });
