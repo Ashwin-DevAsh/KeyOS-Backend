@@ -5,6 +5,8 @@ services:
     build: EmailService
     ports:
       - 8000:8000
+    environment:
+      VIRTUAL_HOST: localhost
 
   nginx-proxy:
     image: jwilder/nginx-proxy
