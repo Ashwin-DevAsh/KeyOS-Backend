@@ -3,10 +3,7 @@ version: "3"
 services:
   reverse-proxy:
     build: nginx
-    depends_on:
-      - emailservice
-    volumes:
-      - ./ngnix/nginx.conf:/etc/nginx/nginx.conf
+    depends_on: [emailservice]
     ports:
       - 80:80
 
