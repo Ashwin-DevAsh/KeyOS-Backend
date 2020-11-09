@@ -1,17 +1,18 @@
 version: "3"
 
 services:
-  reverse-proxy:
-    build: nginx
-    depends_on: [emailservice]
-    ports:
-      - 80:80
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-
   emailservice:
     build: EmailService
     ports:
       - 8000:8000
     environment:
       VIRTUAL_HOST: localhost
+
+  reverse-proxy:
+    build: nginx
+    depends_on: [emailservice]
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
