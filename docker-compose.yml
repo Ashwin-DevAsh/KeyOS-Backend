@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  emailservice:
+    build: EmailService
+    ports:
+      - 8000:8000
