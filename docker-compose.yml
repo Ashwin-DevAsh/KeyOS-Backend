@@ -10,6 +10,7 @@ services:
 
   reverse-proxy:
     image: nginx:1.17.10
+    container_name: nginx
     depends_on:
       - emailservice
     volumes:
