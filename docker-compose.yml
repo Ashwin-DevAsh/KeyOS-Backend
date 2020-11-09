@@ -2,7 +2,7 @@ version: "3"
 
 services:
   reverse-proxy:
-    build: nginx
+    build: ngnix
     depends_on: [emailservice]
     ports:
       - 80:80
