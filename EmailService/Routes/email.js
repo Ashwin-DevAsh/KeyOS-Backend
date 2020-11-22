@@ -27,7 +27,7 @@ app.post("/getEmailVerification", async (req, res) => {
   var isSend = await sendMail(
     "Otp Verification",
     `<p>
-            KeyOS wanted to verify your email address before chaning your password.
+            KeyOS wanted to verify your email address before changing your password.
            <br/>
               Here your otp <a>${otp}</a>
            <br/>
