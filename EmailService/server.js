@@ -15,7 +15,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 app.set("view options", { layout: false });
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public/html"));
 
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
