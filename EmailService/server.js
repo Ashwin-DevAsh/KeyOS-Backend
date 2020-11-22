@@ -14,8 +14,7 @@ const app = express();
 
 const PORT = process.env.PORT || 8000;
 
-app.set("view options", { layout: false });
-app.use(express.static(__dirname + "/public/html"));
+app.engine("html", require("ejs").renderFile);
 
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,7 +27,7 @@ app.use(download);
 // app.engine("html", require("ejs").renderFile);
 
 app.get("/privacyPolicy", (req, res) => {
-  res.render("PrivacyPolicy.html");
+  res.render("../public/html/PrivacyPolicy.html");
 });
 
 app.listen(PORT, () => {
