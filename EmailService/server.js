@@ -14,21 +14,12 @@ const app = express();
 
 const PORT = process.env.PORT || 8000;
 
-// app.engine("html", require("ejs").renderFile);
-
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(email);
 app.use(QrCode);
 app.use(download);
-
-app.engine("html", require("ejs").renderFile);
-app.set("view engine", "html");
-
-app.get("/privacyPolicy", (req, res) => {
-  res.render("../public/html/PrivacyPolicy.html");
-});
 
 app.listen(PORT, () => {
   console.log("Listining on ", PORT);
