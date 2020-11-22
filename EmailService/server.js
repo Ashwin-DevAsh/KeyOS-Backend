@@ -21,8 +21,11 @@ app.use(email);
 app.use(QrCode);
 app.use(download);
 
+app.set("views", "../public/html");
+app.engine("html", require("ejs").renderFile);
+
 app.get("/privacyPolicy", (req, res) => {
-  res.render("../html/PrivacyPolicy.html");
+  res.render("../public/html/PrivacyPolicy.html");
 });
 
 app.listen(PORT, () => {
