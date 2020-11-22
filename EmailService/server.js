@@ -22,7 +22,7 @@ app.use(QrCode);
 app.use(download);
 
 app.get("/privacyPolicy", (req, res) => {
-  res.send("../html/PrivacyPolicy.html");
+  res.render("../html/PrivacyPolicy.html");
 });
 
 app.listen(PORT, () => {
