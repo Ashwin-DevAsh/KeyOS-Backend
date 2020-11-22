@@ -21,8 +21,8 @@ app.use(email);
 app.use(QrCode);
 app.use(download);
 
-app.set("views", "../public/html");
-app.engine("html", require("ejs").renderFile);
+// app.set("views", "../public/html");
+// app.engine("html", require("ejs").renderFile);
 
 app.get("/privacyPolicy", (req, res) => {
   res.render("../public/html/PrivacyPolicy.html");
