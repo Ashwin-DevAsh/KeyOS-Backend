@@ -23,8 +23,8 @@ app.use(email);
 app.use(QrCode);
 app.use(download);
 
-// app.set("views", "../views");
-// app.engine("html", require("ejs").renderFile);
+app.engine("html", require("ejs").renderFile);
+app.set("view engine", "html");
 
 app.get("/privacyPolicy", (req, res) => {
   res.render("../public/html/PrivacyPolicy.html");
