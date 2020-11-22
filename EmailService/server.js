@@ -10,6 +10,9 @@ var corsOptions = {
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
+app.set("view options", { layout: false });
+app.use(express.static(__dirname + "/public"));
+
 const app = express();
 
 const PORT = process.env.PORT || 8000;
@@ -24,9 +27,9 @@ app.use(download);
 // app.set("views", "../views");
 // app.engine("html", require("ejs").renderFile);
 
-// app.get("/privacyPolicy", (req, res) => {
-//   res.render("PrivacyPolicy.html");
-// });
+app.get("/privacyPolicy", (req, res) => {
+  res.render("PrivacyPolicy.html");
+});
 
 app.listen(PORT, () => {
   console.log("Listining on ", PORT);
