@@ -14,7 +14,7 @@ const app = express();
 
 const PORT = process.env.PORT || 8000;
 
-app.engine("html", require("ejs").renderFile);
+// app.engine("html", require("ejs").renderFile);
 
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
