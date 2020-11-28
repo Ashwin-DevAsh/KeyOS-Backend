@@ -9,7 +9,7 @@ app.get("/getPolicyData/:id", getPolicyData);
 app.post("/v1/setPolicyData", setPolicyData);
 app.get("/v1/getPolicyData/:id", getPolicyData);
 
-var setPolicyData = async (req, res) => {
+async function setPolicyData(req, res) {
   var policyData = req.body["policyData"];
   var id = req.body["id"];
 
@@ -23,9 +23,9 @@ var setPolicyData = async (req, res) => {
 
   userPolicies[id] = policyData;
   res.send({ result: "success" });
-};
+}
 
-var getPolicyData = async (req, res) => {
+async function getPolicyData(req, res) {
   var id = req.params["id"];
 
   console.log(id, userPolicies);
@@ -37,6 +37,6 @@ var getPolicyData = async (req, res) => {
   }
 
   res.send(policyData);
-};
+}
 
 module.exports = app;
