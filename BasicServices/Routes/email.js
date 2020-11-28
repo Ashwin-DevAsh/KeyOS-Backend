@@ -1,6 +1,12 @@
 var app = require("express").Router();
 const nodemailer = require("nodemailer");
 
+app.post("/getEmailVerification", getEmailVerification);
+app.post("/sendPassword", sendPassword);
+
+app.post("/v1/getEmailVerification", getEmailVerification);
+app.post("/v1/sendPassword", sendPassword);
+
 var myEmail = "keyos.devash@gmail.com";
 var myPassword = "Ashwin@123";
 
@@ -12,7 +18,7 @@ var transporter = nodemailer.createTransport({
   },
 });
 
-app.post("/getEmailVerification", async (req, res) => {
+async function getEmailVerification(req, res) {
   var email = req.body["email"];
   var otp = req.body["otp"];
 
@@ -44,9 +50,9 @@ app.post("/getEmailVerification", async (req, res) => {
     return;
   }
   res.send({ result: "success" });
-});
+}
 
-app.post("/sendPassword", async (req, res) => {
+async function sendPassword(req, res) {
   var email = req.body["email"];
   var password = req.body["password"];
 
@@ -78,7 +84,7 @@ app.post("/sendPassword", async (req, res) => {
     return;
   }
   res.send({ result: "success" });
-});
+}
 
 async function sendMail(subject, text, toEmail) {
   var mailOptions = {

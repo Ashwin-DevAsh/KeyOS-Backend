@@ -3,13 +3,11 @@ var jwt = require("jsonwebtoken");
 
 var userPolicies = {};
 
-app.post("/setPolicyData", async (req, res) => {
-  setPolicyData(req, res);
-});
+app.post("/setPolicyData", setPolicyData);
+app.get("/getPolicyData/:id", getPolicyData);
 
-app.get("/getPolicyData/:id", async (req, res) => {
-  getPolicyData(req, res);
-});
+app.post("/v1/setPolicyData", setPolicyData);
+app.get("/v1/getPolicyData/:id", getPolicyData);
 
 var setPolicyData = async (req, res) => {
   var policyData = req.body["policyData"];
