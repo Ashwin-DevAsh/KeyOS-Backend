@@ -15,13 +15,14 @@
 .copyright-container {
   display: flex;
   align-items: center;
+  margin: 10%;
+
   justify-content: center;
   min-height: 60px;
 }
 
 .copyright-container > h5 {
   padding: 0%;
-  margin: 10%;
   margin: auto;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.5);
