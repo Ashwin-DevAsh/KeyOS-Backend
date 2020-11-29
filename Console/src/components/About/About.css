@@ -2,12 +2,10 @@
   margin-bottom: 0px;
   background-color: #3dda84;
   display: grid;
-  padding: 0 10%;
+  padding: 100px 10%;
   justify-content: start;
   align-items: center;
   flex-direction: row;
-  padding-bottom: 100px;
-  padding-top: 100px;
   grid-template-columns: 30% 30% 30%;
   column-gap: 100px;
 }
@@ -15,7 +13,7 @@
 .copyright-container {
   display: flex;
   align-items: center;
-  margin: 10%;
+  margin: 20px;
 
   justify-content: center;
   min-height: 60px;
@@ -54,6 +52,13 @@
   color: black;
   margin-top: 10px;
   cursor: pointer;
+}
+
+.about-keyos > h1,
+.company > h1,
+.service-agriment > h1 {
+  margin: 0;
+  padding: 0;
 }
 
 @media (max-width: 1190px) {
