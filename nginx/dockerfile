@@ -1,7 +1,7 @@
 FROM nginx:1.17.10
 
 COPY ./nginx.conf ./etc/nginx/
-COPY ./404.htm .
+COPY ./404.html .
 
 EXPOSE 80
 EXPOSE 443
