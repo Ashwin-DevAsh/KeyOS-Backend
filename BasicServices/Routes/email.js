@@ -88,7 +88,7 @@ async function sendPassword(req, res) {
 
 async function sendMail(subject, text, toEmail) {
   var mailOptions = {
-    from: "keyos.devash@gmail.com",
+    from: `KeyOS <keyos.devash@gmail.com>`,
     to: toEmail,
     subject: subject,
     html: text,
