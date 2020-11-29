@@ -66,7 +66,7 @@
 
 .featuresContainer {
   width: 90vw;
-  margin-top: 250px;
+  margin-top: 350px;
   row-gap: 100px;
   display: grid;
   grid-template-columns: 25% 25% 25%;
