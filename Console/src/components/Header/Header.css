@@ -61,16 +61,6 @@ nav {
   transform: translateY(-50%);
 }
 
-nav > .color-container {
-  /* height: 101%;
-  position: absolute;
-  background-color: #ff3389;
-
-  right: 0;
-  z-index: -1;
-  width: 55%; */
-}
-
 .logo-container {
   display: flex;
   align-items: center;
