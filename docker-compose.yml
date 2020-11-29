@@ -5,8 +5,10 @@ services:
     build: BasicServices
     ports:
       - 8000:8000
-    environment:
-      VIRTUAL_HOST: localhost
+
+  console:
+    build: Console
+    ports: -3000:80
 
   reverse-proxy:
     build: nginx
