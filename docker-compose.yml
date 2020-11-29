@@ -8,7 +8,8 @@ services:
 
   console:
     build: Console
-    ports: -3000:80
+    ports:
+      - 3000:80
 
   reverse-proxy:
     build: nginx
