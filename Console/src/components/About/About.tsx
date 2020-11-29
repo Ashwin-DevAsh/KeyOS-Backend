@@ -29,7 +29,15 @@ export default function () {
         </div>
         <div className="company">
           <h1>Company</h1>
-          <h3 style={{ padding: 0, margin: 0, opacity: 0.6, fontWeight: 600 }}>
+          <h3
+            style={{
+              padding: 0,
+              margin: 0,
+              marginTop: 10,
+              opacity: 0.6,
+              fontWeight: 600,
+            }}
+          >
             {" "}
             DevAsh private limited
           </h3>
