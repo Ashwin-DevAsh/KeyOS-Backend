@@ -51,7 +51,7 @@ export default function () {
       <div className="copyright-container">
         <h5>
           Copyrights © 2020. All rights reserved by{" "}
-          <a href="https://www.devash.tech">DevAsh Systems Private Limited</a>
+          <a href="https://www.devash.tech">DevAsh Private Limited</a>
         </h5>
       </div>
     </div>
