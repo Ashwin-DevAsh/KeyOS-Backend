@@ -19,11 +19,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 1cm;
-  line-height: 1cm;
-  font-family: sans-serif;
-  width: 1600px;
-  height: 1050px;
 }
 
 code {
