@@ -19,7 +19,7 @@ export default () => {
     new Questions(
       "How to block whatsapp settings page ?",
       `In order to block whatsapp settings page go to app section then find whatsapp and click edit icon this will navigate you to edit app page.
-      in that page click "Block Actibvites" then type "settings" in search bar then select the filtered items and click done. this will block the whatsapp
+      in that page click "Block Activites" then type "settings" in search bar then select the filtered items and click done. this will block the whatsapp
       settings page`
     ),
     new Questions(
