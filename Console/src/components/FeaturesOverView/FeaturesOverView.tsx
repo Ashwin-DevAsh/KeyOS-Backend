@@ -29,7 +29,9 @@ export default () => {
       <div className="featureOverview-selector" />
       <div className="heading">
         <h2>{"The right tool\n for the moment"}</h2>
-        <h4 style={{ marginTop: 30, opacity: 0.7 }}>Avaliable for android</h4>
+        <h4 style={{ marginTop: 30, opacity: 0.7, textAlign: "center" }}>
+          Avaliable for android
+        </h4>
         <h5>
           KeyOS allows you to lockdown Android devices into kiosk mode, restrict
           access to apps & websites on devices to ensure device and data

@@ -1,7 +1,7 @@
 .header-container {
   position: relative;
-  display: none;
   height: 118.5vh;
+  display: none;
   width: 100%;
 }
 
@@ -10,6 +10,8 @@
   top: -65px;
   display: flex;
   height: 100vh;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
@@ -81,7 +83,7 @@ nav {
   width: 100%;
   z-index: -2;
   height: 100vh;
-  background-color: #4285f4;
+  /* background-color: #4285f4; */
 }
 
 .landing-text {
@@ -96,19 +98,19 @@ nav {
 }
 
 .mobile-image {
-  width: 50%;
-  height: 100%;
   display: flex;
   top: 5%;
   justify-content: center;
+  border-bottom: solid 0.1px;
   flex-direction: column;
-  align-items: flex-end;
-  position: absolute;
+  align-items: center;
+  width: 50%;
+  border-bottom: solid 2px black;
   right: 15%;
 }
 
 .mobile-image > img {
-  height: 70%;
+  height: 60vh;
 }
 
 .options > ul {
