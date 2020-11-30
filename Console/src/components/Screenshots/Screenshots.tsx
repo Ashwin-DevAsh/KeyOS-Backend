@@ -64,7 +64,7 @@ export default function Screenshots() {
         <div
           style={{ opacity: page == appScreenshots.length ? 0.4 : 1 }}
           onClick={() => {
-            if (page < appScreenshots.length) {
+            if (page < appScreenshots.length - 1) {
               setPage(page + 1);
             }
           }}
