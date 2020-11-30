@@ -62,7 +62,7 @@ export default function Screenshots() {
           })}
         </Carousel>
         <div
-          style={{ opacity: page == appScreenshots.length ? 0.4 : 1 }}
+          style={{ opacity: page == appScreenshots.length - 1 ? 0.4 : 1 }}
           onClick={() => {
             if (page < appScreenshots.length - 1) {
               setPage(page + 1);
