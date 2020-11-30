@@ -21,6 +21,7 @@ import arrow from "./arrow-icon.svg";
 import leftArrow from "./left-arrow.svg";
 import rightArrow from "./right-arrow.svg";
 import star from "./star.svg";
+import googlePlay from "./google_play.svg";
 
 export default {
   keyOS,
@@ -46,4 +47,5 @@ export default {
   leftArrow,
   rightArrow,
   star,
+  googlePlay,
 };
