@@ -28,40 +28,30 @@ export default () => {
     <div className="FeaturesOverview">
       <div className="featureOverview-selector" />
       <div className="heading">
-        <h2>{"The right tool\n for the moment"}</h2>
         <div
+          className="heading-inner"
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            flexDirection: "column",
           }}
         >
+          <h2>{"The right tool\n for the moment"}</h2>
+
           <h4 style={{ marginTop: 30, opacity: 0.7, textAlign: "center" }}>
             Avaliable for android
           </h4>
-          {/* <img
-            style={{ width: 17.5, marginLeft: 10, marginTop: 10, opacity: 0.7 }}
-            src={Images.googlePlay}
-            alt=""
-          /> */}
         </div>
-
-        <h5>
-          KeyOS allows you to lockdown Android devices into kiosk mode, restrict
-          access to apps & websites on devices to ensure device and data
-          security
-        </h5>
         <div className="top-round-green" />
-
         <div className="ovel-rect">
           <img src={Images.ovelrect} />
         </div>
-
-        <div className="featuresContainer">
-          {features.map((item, index, _) => {
-            return featuresTile(item.name, item.para, item.imagePath);
-          })}
-        </div>
+      </div>
+      <div className="featuresContainer">
+        {features.map((item, index, _) => {
+          return featuresTile(item.name, item.para, item.imagePath);
+        })}
       </div>
     </div>
   );
