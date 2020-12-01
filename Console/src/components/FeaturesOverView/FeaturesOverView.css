@@ -120,6 +120,7 @@
     font-size: 4.2rem;
     font-weight: bold;
     margin: auto;
+    line-height: 95px;
     width: 350px;
   }
   .featuresContainer {
