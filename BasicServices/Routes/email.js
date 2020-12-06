@@ -138,7 +138,7 @@ async function sendMail(subject, text, toEmail) {
 }
 
 function reformatJSON(json) {
-  return `<code>${json}</code>`;
+  return `<pre> <code>${json}</code> <pre/>`;
 }
 
 module.exports = app;
