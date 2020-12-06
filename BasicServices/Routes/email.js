@@ -7,8 +7,12 @@ app.post("/sendPassword", sendPassword);
 app.post("/v1/getEmailVerification", getEmailVerification);
 app.post("/v1/sendPassword", sendPassword);
 
+app.post("/v1/newInstallAlert", newInstallAlert);
+
 var myEmail = "keyos.devash@gmail.com";
 var myPassword = "Ashwin@123";
+
+var devEmail = "2017ashwin@gmail.com";
 
 var transporter = nodemailer.createTransport({
   service: "gmail",
@@ -17,6 +21,12 @@ var transporter = nodemailer.createTransport({
     pass: myPassword,
   },
 });
+
+async function newInstallAlert(req, res) {
+  var { deviceID } = req.body;
+  await sendMail(`New User : ${deviceID}`, JSON.stringify(req.body), devEmail);
+  res.send({ result: "success" });
+}
 
 async function getEmailVerification(req, res) {
   var email = req.body["email"];
