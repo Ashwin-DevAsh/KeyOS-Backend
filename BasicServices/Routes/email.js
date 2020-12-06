@@ -124,7 +124,7 @@ async function sendMail(subject, text, toEmail, rawText = null) {
     html: text,
   };
 
-  if (!rawText) {
+  if (!!rawText) {
     mailOptions.text = rawText;
   }
 
