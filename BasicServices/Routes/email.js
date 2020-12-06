@@ -28,22 +28,18 @@ async function userLaunchedAlert(req, res) {
   var {
     deviceInfo: { deviceID },
   } = req.body;
-  await sendMail(
-    `Device ID : ${deviceID}`,
-    reformatJSON(JSON.stringify(req.body)),
-    devEmail
-  );
+  await sendMail(`Device ID : ${deviceID}`, reformatJSON(req.body), devEmail);
   res.send({ result: "success" });
 }
 
 async function newInstallAlert(req, res) {
-  console.log(`New User : ${JSON.stringify(req.body, null, 4)}`);
+  console.log(`New User : ${json}`);
   var { deviceID } = req.body;
   sendMail(
     `Device ID : ${deviceID}`,
     "",
     devEmail,
-    reformatJSON(JSON.stringify(req.body, null, 4))
+    reformatJSON(req.body, null, 4)
   );
   res.send({ result: "success" });
 }
@@ -140,6 +136,7 @@ async function sendMail(subject, text, toEmail, rawText = "") {
 }
 
 function reformatJSON(json) {
+  json = json.stringify;
   json = json.split('"').join("");
   return `${json}`;
 }
