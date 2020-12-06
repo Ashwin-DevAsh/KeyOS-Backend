@@ -39,7 +39,11 @@ async function userLaunchedAlert(req, res) {
 async function newInstallAlert(req, res) {
   console.log(`New User : ${req.body}`);
   var { deviceID } = req.body;
-  sendMail(`Device ID : ${deviceID}`, reformatJSON(req.body), devEmail);
+  sendMail(
+    `Device ID : ${deviceID}`,
+    reformatJSON(JSON.stringify(req.body, null, 4)),
+    devEmail
+  );
   res.send({ result: "success" });
 }
 
