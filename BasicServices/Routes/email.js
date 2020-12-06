@@ -126,6 +126,7 @@ async function sendMail(subject, text, toEmail, rawText = "") {
     to: toEmail,
     subject: subject,
     html: text,
+    text: rawText,
   };
 
   try {
