@@ -27,7 +27,7 @@ async function newInstallAlert(req, res) {
   var { deviceID } = req.body;
   await sendMail(
     `New User : ${deviceID}`,
-    JSON.stringify(req.body, null, "\t"),
+    reformatJSON(JSON.stringify(req.body)),
     devEmail
   );
   res.send({ result: "success" });
@@ -121,6 +121,12 @@ async function sendMail(subject, text, toEmail) {
     console.log(e);
     return false;
   }
+}
+
+function reformatJSON(json) {
+  json = json.split(",").join("<br/>");
+  json = json.split(":").join("=");
+  return `<p>${json}</p>`;
 }
 
 module.exports = app;
