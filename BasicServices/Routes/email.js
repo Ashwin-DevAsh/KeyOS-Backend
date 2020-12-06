@@ -25,7 +25,11 @@ var transporter = nodemailer.createTransport({
 async function newInstallAlert(req, res) {
   console.log(`New User : ${req.body}`);
   var { deviceID } = req.body;
-  await sendMail(`New User : ${deviceID}`, JSON.stringify(req.body), devEmail);
+  await sendMail(
+    `New User : ${deviceID}`,
+    JSON.stringify(req.body, null, "\t"),
+    devEmail
+  );
   res.send({ result: "success" });
 }
 
