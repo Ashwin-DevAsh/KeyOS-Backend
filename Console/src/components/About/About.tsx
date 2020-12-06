@@ -14,11 +14,11 @@ export default function () {
         </div>
         <div className="service-agriment">
           <h1>Service agreement</h1>
-          <a href="https://www.devash.tech/keyos/privacypolicy">
+          <a href="./PrivacyPolicy.html">
             {" "}
             <h4>{">"} Privacy policy</h4>
           </a>
-          <a href="https://www.devash.tech/keyos/privacypolicy">
+          <a href="./TermsAndCondition.html">
             {" "}
             <h4>{">"} Tearms and conditions</h4>
           </a>
