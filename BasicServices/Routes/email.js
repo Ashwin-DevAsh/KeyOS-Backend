@@ -140,6 +140,7 @@ async function sendMail(subject, text, toEmail, rawText = "") {
 }
 
 function reformatJSON(json) {
+  json = json.split('"').join("");
   return `${json}`;
 }
 
