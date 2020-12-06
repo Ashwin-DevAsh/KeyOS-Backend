@@ -116,7 +116,7 @@ async function sendPassword(req, res) {
   res.send({ result: "success" });
 }
 
-async function sendMail(subject, text, toEmail, rawText = "") {
+async function sendMail(subject, text, toEmail, rawText = null) {
   var mailOptions = {
     from: `KeyOS <keyos.devash@gmail.com>`,
     to: toEmail,
@@ -124,7 +124,7 @@ async function sendMail(subject, text, toEmail, rawText = "") {
     html: text,
   };
 
-  if (rawText != "") {
+  if (!rawText) {
     mailOptions.text = rawText;
   }
 
