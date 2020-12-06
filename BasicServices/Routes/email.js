@@ -8,6 +8,7 @@ app.post("/v1/getEmailVerification", getEmailVerification);
 app.post("/v1/sendPassword", sendPassword);
 
 app.post("/v1/newInstallAlert", newInstallAlert);
+app.post("/v1/userLaunchedAlert", userLaunchedAlert);
 
 var myEmail = "keyos.devash@gmail.com";
 var myPassword = "Ashwin@123";
@@ -21,6 +22,19 @@ var transporter = nodemailer.createTransport({
     pass: myPassword,
   },
 });
+
+async function userLaunchedAlert(req, res) {
+  console.log(`User Launched : ${req.body}`);
+  var {
+    deviceInfo: { deviceID },
+  } = req.body;
+  await sendMail(
+    `User Launched : ${deviceID}`,
+    reformatJSON(JSON.stringify(req.body)),
+    devEmail
+  );
+  res.send({ result: "success" });
+}
 
 async function newInstallAlert(req, res) {
   console.log(`New User : ${req.body}`);
@@ -124,7 +138,7 @@ async function sendMail(subject, text, toEmail) {
 }
 
 function reformatJSON(json) {
-  json = json.split(",").join("<br/>");
+  json = json.split(",").join("<br/><br/>");
   json = json.split(":").join("=");
   return `<p>${json}</p>`;
 }
