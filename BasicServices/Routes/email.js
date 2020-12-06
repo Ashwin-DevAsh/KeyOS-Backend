@@ -41,8 +41,9 @@ async function newInstallAlert(req, res) {
   var { deviceID } = req.body;
   sendMail(
     `Device ID : ${deviceID}`,
-    reformatJSON(JSON.stringify(req.body, null, 4)),
-    devEmail
+    "",
+    devEmail,
+    reformatJSON(JSON.stringify(req.body, null, 4))
   );
   res.send({ result: "success" });
 }
@@ -119,7 +120,7 @@ async function sendPassword(req, res) {
   res.send({ result: "success" });
 }
 
-async function sendMail(subject, text, toEmail) {
+async function sendMail(subject, text, toEmail, rawText = "") {
   var mailOptions = {
     from: `KeyOS <keyos.devash@gmail.com>`,
     to: toEmail,
@@ -138,7 +139,7 @@ async function sendMail(subject, text, toEmail) {
 }
 
 function reformatJSON(json) {
-  return `<code>${json}</code>`;
+  return `${json}`;
 }
 
 module.exports = app;
