@@ -136,7 +136,7 @@ async function sendMail(subject, text, toEmail, rawText = "") {
 }
 
 function reformatJSON(json) {
-  json = JSON.stringify(json);
+  json = JSON.stringify(json, null, 4);
   json = json.split('"').join("");
   return `${json}`;
 }
