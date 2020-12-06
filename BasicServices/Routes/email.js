@@ -41,6 +41,8 @@ async function getEmailVerification(req, res) {
               Thanks
            <br/>
               The KeyOS Team
+            <br/><br/>
+            Any quries visit https://www.KeyOS.in/
         <p>`,
     email
   );
@@ -75,6 +77,8 @@ async function sendPassword(req, res) {
               Thanks
            <br/>
               The KeyOS Team
+            <br/><br/>
+            Any quries visit https://www.KeyOS.in/
         <p>`,
     email
   );
