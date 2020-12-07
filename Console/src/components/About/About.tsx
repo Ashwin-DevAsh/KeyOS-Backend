@@ -20,7 +20,7 @@ export default function () {
           </a>
           <a href="./TermsAndCondition.html">
             {" "}
-            <h4>{">"} Terms and conditions</h4>
+            <h4>{">"} Terms & Conditions</h4>
           </a>
           <a href="https://www.devash.tech">
             {" "}
