@@ -60,8 +60,8 @@ async function getEmailVerification(req, res) {
     "Otp Verification",
     `<p>
             KeyOS wanted to verify your email address before changing your password.
-           <br/>
-              Here your otp <a>${otp}</a>
+           <br/><br/>
+              Here your otp <br/><br/> <h1>${otp}</h1>
            <br/>
            <br/>
               Thanks
