@@ -98,7 +98,7 @@ async function sendPassword(req, res) {
     `<p>
            Hope you enjoy the service provide by KeyOS .
            <br/>
-           your password for KeyOS <a>${password}</a>
+           your password for KeyOS <br/> <h4>${password}</h4>
            <br/>
            <br/>
               Thanks
