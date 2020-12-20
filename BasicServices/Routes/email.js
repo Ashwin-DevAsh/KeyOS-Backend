@@ -48,8 +48,6 @@ async function getEmailVerification(req, res) {
   var email = req.body["email"];
   var otp = req.body["otp"];
 
-  console.log(req.body);
-
   if (!email || !otp) {
     console.log("Invalid body");
     res.send({ result: "failed" });
