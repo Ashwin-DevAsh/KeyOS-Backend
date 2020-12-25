@@ -32,7 +32,10 @@ class DatabaseService {
       ])
     ).rows;
     (await postgres).release();
-    return deviceConfig;
+    if (deviceConfig.length == 0) {
+      return {};
+    }
+    return deviceConfig[0];
   };
 }
 
