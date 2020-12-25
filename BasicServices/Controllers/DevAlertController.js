@@ -4,7 +4,7 @@ emailService = new EmailService();
 class DevAlertController {
   devEmail = "2017ashwin@gmail.com";
 
-  async userLaunchedAlert(req, res) {
+  userLaunchedAlert = async (req, res) => {
     var {
       deviceInfo: { deviceID },
     } = req.body;
@@ -16,9 +16,9 @@ class DevAlertController {
     );
 
     res.send({ result: "success" });
-  }
+  };
 
-  async newInstallAlert(req, res) {
+  newInstallAlert = async (req, res) => {
     var { deviceID } = req.body;
     emailService.sendMail(
       `Device ID : ${deviceID}`,
@@ -27,7 +27,7 @@ class DevAlertController {
       this.reformatJSON(req.body, null, 4)
     );
     res.send({ result: "success" });
-  }
+  };
 
   reformatJSON(json) {
     json = JSON.stringify(json, null, 4);
