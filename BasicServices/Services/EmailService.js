@@ -13,17 +13,13 @@ module.exports = class EmailService {
     },
   });
 
-  sendMail = async (subject, text, toEmail, rawText = null) => {
+  sendMail = async (subject, text, toEmail) => {
     var mailOptions = {
       from: `KeyOS <keyos.devash@gmail.com>`,
       to: toEmail,
       subject: subject,
       html: text,
     };
-
-    if (!!rawText) {
-      mailOptions.text = rawText;
-    }
 
     try {
       var result = await this.transporter.sendMail(mailOptions);

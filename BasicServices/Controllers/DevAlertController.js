@@ -21,9 +21,8 @@ class DevAlertController {
     var { deviceID } = req.body;
     this.emailService.sendMail(
       `Device ID : ${deviceID}`,
-      "",
-      this.emailService.devEmail,
-      this.reformatJSON(req.body, null, 4)
+      this.reformatJSON(req.body, null, 4),
+      this.emailService.devEmail
     );
     res.send({ result: "success" });
   };
