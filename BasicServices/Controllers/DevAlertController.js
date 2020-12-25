@@ -1,15 +1,15 @@
 const EmailService = require("../Services/EmailService");
+emailService = new EmailService();
 
 class DevAlertController {
   devEmail = "2017ashwin@gmail.com";
-  emailService = new EmailService();
 
   async userLaunchedAlert(req, res) {
     var {
       deviceInfo: { deviceID },
     } = req.body;
 
-    this.emailService.sendMail(
+    emailService.sendMail(
       `Device ID : ${deviceID}`,
       this.reformatJSON(req.body),
       this.devEmail
@@ -20,7 +20,7 @@ class DevAlertController {
 
   async newInstallAlert(req, res) {
     var { deviceID } = req.body;
-    this.emailService.sendMail(
+    emailService.sendMail(
       `Device ID : ${deviceID}`,
       "",
       this.devEmail,

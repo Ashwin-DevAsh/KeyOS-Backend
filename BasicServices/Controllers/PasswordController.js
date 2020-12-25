@@ -1,8 +1,7 @@
 const EmailService = require("../Services/EmailService");
+emailService = new EmailService();
 
 class PasswordController {
-  emailService = new EmailService();
-
   async sendPassword(req, res) {
     var email = req.body["email"];
     var password = req.body["password"];
@@ -45,7 +44,7 @@ class PasswordController {
       return;
     }
 
-    var isSend = await this.emailService.sendMail(
+    var isSend = await emailService.sendMail(
       "Otp Verification",
       `<p>
             KeyOS wanted to verify your email address before changing your password.
