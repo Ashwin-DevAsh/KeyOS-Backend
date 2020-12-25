@@ -1,17 +1,12 @@
 var app = require("express").Router();
 const PasswordController = require("../Controllers/PasswordController");
-const DevAlertController = require("../Controllers/DevAlertController");
 
 var passwordController = new PasswordController();
-var devAlertController = new DevAlertController();
 
 app.post("/getEmailVerification", passwordController.getEmailVerification);
 app.post("/sendPassword", passwordController.sendPassword);
 
 app.post("/v1/getEmailVerification", passwordController.getEmailVerification);
 app.post("/v1/sendPassword", passwordController.sendPassword);
-
-app.post("/v1/newInstallAlert", devAlertController.newInstallAlert);
-app.post("/v1/userLaunchedAlert", devAlertController.userLaunchedAlert);
 
 module.exports = app;

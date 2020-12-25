@@ -15,6 +15,13 @@ services:
     volumes:
       - ./Database:/Database
 
+  admin:
+    build: Admin
+    ports:
+      - 9000:8000
+    volumes:
+      - ./Database:/Database
+
   console:
     build: Console
     ports:
@@ -22,7 +29,7 @@ services:
 
   reverse-proxy:
     build: nginx
-    depends_on: [basicservices, console]
+    depends_on: [basicservices, console, admin]
     ports:
       - 80:80
       - 443:443

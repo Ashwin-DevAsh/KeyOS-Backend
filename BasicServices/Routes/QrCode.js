@@ -1,6 +1,4 @@
 var app = require("express").Router();
-var jwt = require("jsonwebtoken");
-
 var QrCodeController = require("../Controllers/QrCodeController");
 var qrCodeController = new QrCodeController();
 
