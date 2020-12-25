@@ -1,29 +1,34 @@
 const EmailService = require("../Services/EmailService");
+const DatabaseService = require("../Services/DatabaseService");
 
 class DevAlertController {
   emailService = new EmailService();
+  databaseService = new DatabaseService();
 
   userLaunchedAlert = async (req, res) => {
-    var {
-      deviceInfo: { deviceID },
-    } = req.body;
+    var { deviceInfo, config, isLaunched } = req.body;
 
     this.emailService.sendMail(
-      `Device ID : ${deviceID}`,
+      `Device ID : ${deviceInfo.deviceID}`,
       this.reformatJSON(req.body),
       this.emailService.devEmail
     );
+
+    this.databaseService.updateLaunchedInfo(deviceInfo, config, isLaunched);
 
     res.send({ result: "success" });
   };
 
   newInstallAlert = async (req, res) => {
-    var { deviceID } = req.body;
+    var deviceInfo = req.body;
     this.emailService.sendMail(
-      `Device ID : ${deviceID}`,
+      `Device ID : ${deviceInfo.deviceID}`,
       this.reformatJSON(req.body, null, 4),
       this.emailService.devEmail
     );
+
+    this.databaseService.insertNewDevice(deviceInfo);
+
     res.send({ result: "success" });
   };
 
