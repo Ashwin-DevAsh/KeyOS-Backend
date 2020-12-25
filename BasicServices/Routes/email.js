@@ -1,7 +1,5 @@
-const PasswordController = require("../Controllers/PasswordController");
-
 var app = require("express").Router();
-var PasswordController = require("../Controllers/PasswordController");
+const PasswordController = require("../Controllers/PasswordController");
 
 var passwordController = new PasswordController();
 var devAlertController = new DevAlertController();
