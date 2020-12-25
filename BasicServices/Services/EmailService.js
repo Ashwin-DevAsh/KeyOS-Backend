@@ -7,8 +7,8 @@ module.exports = class EmailService {
   transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: myEmail,
-      pass: myPassword,
+      user: this.myEmail,
+      pass: this.myPassword,
     },
   });
 
@@ -25,7 +25,7 @@ module.exports = class EmailService {
     }
 
     try {
-      var result = await transporter.sendMail(mailOptions);
+      var result = await this.transporter.sendMail(mailOptions);
       console.log(result);
       return true;
     } catch (e) {
