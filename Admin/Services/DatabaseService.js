@@ -6,25 +6,30 @@ class DatabaseService {
 
   getAllDevices = async () => {
     var postgres = await this.pool.connect();
-    var allDevices = await postgres
-      .query(
-        `
-                    deviceID, 
-                    brand,
-                    model,
-                    sdk,
-                    versionName,
-                    isLaunched,
-    `
-      )(await postgres)
-      .release();
-    return {};
+    var allDevices = await postgres.query(
+      `select
+                deviceID, 
+                brand,
+                model,
+                sdk,
+                versionName,
+                isLaunched
+        from devices
+    `,
+      []
+    );
+    (await postgres).release();
+    return allDevices;
   };
 
   getDeviceConfig = async (deviceID) => {
     var postgres = await this.pool.connect();
+    var deviceConfig = await postgres.query(
+      `select config from devices where deviceID = $1`,
+      [deviceID]
+    );
     (await postgres).release();
-    return {};
+    return deviceConfig;
   };
 }
 

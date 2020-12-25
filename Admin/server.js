@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const devices = require("./Routes/Devices");
 
 var corsOptions = {
   origin: "*",
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 8000;
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(devices);
 
 app.listen(PORT, () => {
   console.log("Listining on ", PORT);
