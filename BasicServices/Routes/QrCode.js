@@ -1,42 +1,13 @@
 var app = require("express").Router();
 var jwt = require("jsonwebtoken");
 
-var userPolicies = {};
+var QrCodeController = require("../Controllers/QrCodeController");
+var qrCodeController = new QrCodeController();
 
-app.post("/setPolicyData", setPolicyData);
-app.get("/getPolicyData/:id", getPolicyData);
+app.post("/setPolicyData", qrCodeController.setPolicyData);
+app.get("/getPolicyData/:id", qrCodeController.getPolicyData);
 
-app.post("/v1/setPolicyData", setPolicyData);
-app.get("/v1/getPolicyData/:id", getPolicyData);
-
-async function setPolicyData(req, res) {
-  var policyData = req.body["policyData"];
-  var id = req.body["id"];
-
-  console.log(req.body);
-
-  if (!policyData || !id) {
-    console.log("Invalid body");
-    res.send({ result: "failed" });
-    return;
-  }
-
-  userPolicies[id] = policyData;
-  res.send({ result: "success" });
-}
-
-async function getPolicyData(req, res) {
-  var id = req.params["id"];
-
-  console.log(id, userPolicies);
-  var policyData = userPolicies[id];
-
-  if (!policyData) {
-    res.send(null);
-    return;
-  }
-
-  res.send(policyData);
-}
+app.post("/v1/setPolicyData", qrCodeController.setPolicyData);
+app.get("/v1/getPolicyData/:id", qrCodeController.getPolicyData);
 
 module.exports = app;
