@@ -1,10 +1,21 @@
 version: "3"
 
 services:
+  # database:
+  #   image: mongo
+  #   restart: always
+  #   volumes:
+  #     - ./Database/Data:/data/db
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: KeyOS
+  #     MONGO_INITDB_ROOT_PASSWORD: Ashwin@123
+
   basicservices:
     build: BasicServices
     ports:
       - 8000:8000
+    volumes:
+      - ./Database:/Database
 
   console:
     build: Console
