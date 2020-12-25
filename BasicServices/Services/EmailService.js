@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-export default class EmailService {
+module.exports = class EmailService {
   myEmail = "keyos.devash@gmail.com";
   myPassword = "Ashwin@123";
 
@@ -33,4 +33,4 @@ export default class EmailService {
       return false;
     }
   }
-}
+};

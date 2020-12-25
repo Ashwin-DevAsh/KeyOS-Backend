@@ -1,5 +1,5 @@
 var app = require("express").Router();
-const { default: EmailService } = require("../Services/EmailService");
+const EmailService = require("../Services/EmailService");
 var emailService = new EmailService();
 
 app.post("/getEmailVerification", getEmailVerification);
