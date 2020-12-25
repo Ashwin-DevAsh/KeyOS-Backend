@@ -12,7 +12,7 @@ module.exports = class EmailService {
     },
   });
 
-  async sendMail(subject, text, toEmail, rawText = null) {
+  sendMail = async (subject, text, toEmail, rawText = null) => {
     var mailOptions = {
       from: `KeyOS <keyos.devash@gmail.com>`,
       to: toEmail,
@@ -32,5 +32,5 @@ module.exports = class EmailService {
       console.log(e);
       return false;
     }
-  }
+  };
 };

@@ -1,8 +1,9 @@
 const EmailService = require("../Services/EmailService");
-emailService = new EmailService();
 
 class PasswordController {
-  async sendPassword(req, res) {
+  emailService = new EmailService();
+
+  sendPassword = async (req, res) => {
     var email = req.body["email"];
     var password = req.body["password"];
 
@@ -11,7 +12,7 @@ class PasswordController {
       return;
     }
 
-    var isSend = await emailService.sendMail(
+    var isSend = await this.emailService.sendMail(
       "Password Recovery",
       `<p>
            Hope you enjoy the service provide by KeyOS .
@@ -32,9 +33,9 @@ class PasswordController {
       return;
     }
     res.send({ result: "success" });
-  }
+  };
 
-  async getEmailVerification(req, res) {
+  getEmailVerification = async (req, res) => {
     var email = req.body["email"];
     var otp = req.body["otp"];
 
@@ -44,7 +45,7 @@ class PasswordController {
       return;
     }
 
-    var isSend = await emailService.sendMail(
+    var isSend = await this.emailService.sendMail(
       "Otp Verification",
       `<p>
             KeyOS wanted to verify your email address before changing your password.
@@ -66,7 +67,7 @@ class PasswordController {
       return;
     }
     res.send({ result: "success" });
-  }
+  };
 }
 
 module.exports = PasswordController;
