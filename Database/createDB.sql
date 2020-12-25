@@ -1,5 +1,5 @@
-create table users(
-      deviceID varchar,
+create table Devices(
+      deviceID varchar primary key, 
       brand varchar,
       model varchar,
       sdk varchar,
