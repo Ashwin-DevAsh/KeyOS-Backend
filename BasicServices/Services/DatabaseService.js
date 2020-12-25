@@ -5,7 +5,7 @@ class DatabaseService {
   pool = new Pool(clientDetails);
 
   insertNewDevice = async (deviceInfo) => {
-    var postgres = await pool.connect();
+    var postgres = await this.pool.connect();
     var { deviceID, sdk, model, brand, versionName } = deviceInfo;
     var isDeviceExist = (
       await postgres.query(`select * from devices where deviceID = $1`, [
@@ -23,7 +23,7 @@ class DatabaseService {
   };
 
   updateLaunchedInfo = async (deviceInfo, config, isLaunched) => {
-    var postgres = await pool.connect();
+    var postgres = await this.pool.connect();
     var { deviceID, sdk, model, brand, versionName } = deviceInfo;
     var isDeviceExist = (
       await postgres.query(`select * from devices where deviceID = $1`, [
