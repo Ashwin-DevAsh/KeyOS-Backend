@@ -1,15 +1,12 @@
 var app = require("express").Router();
 var jwt = require("jsonwebtoken");
+var DownloadController = require("../Controllers/DownloadController");
 
-app.get("/download", function (req, res) {
-  const file = "../public/Apk/KeyOS.apk";
-  res.download(file);
-});
+var downloadController = new DownloadController(s);
+
+app.get("/download", downloadController.downloadProApk);
 
 //v1
-app.get("/v1/download", function (req, res) {
-  const file = "../public/Apk/KeyOS.apk";
-  res.download(file);
-});
+app.get("/v1/download", downloadController.downloadProApk);
 
 module.exports = app;

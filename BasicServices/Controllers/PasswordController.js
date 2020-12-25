@@ -20,12 +20,12 @@ class PasswordController {
            your password for KeyOS <br/> <h4>${password}</h4>
            <br/>
            <br/>
-              Thanks
+           Thanks
            <br/>
-              The KeyOS Team
-            <br/><br/>
-            Any quries visit https://www.KeyOS.in/
-        <p>`,
+           The KeyOS Team
+           <br/><br/>
+           Any quries visit https://www.KeyOS.in/
+       <p>`,
       email
     );
     if (!isSend) {
@@ -48,18 +48,17 @@ class PasswordController {
     var isSend = await this.emailService.sendMail(
       "Otp Verification",
       `<p>
-            KeyOS wanted to verify your email address before changing your password.
+           KeyOS wanted to verify your email address before changing your password.
            <br/>
            <br/>
-              Here your otp <br/> <h1>${otp}</h1>
+           Here your otp <br/> <h1>${otp}</h1>
            <br/>
-          
-              Thanks
+           Thanks
            <br/>
-              The KeyOS Team
-            <br/><br/>
-            Any quries visit https://www.KeyOS.in/
-        <p>`,
+           The KeyOS Team
+           <br/><br/>
+           Any quries visit https://www.KeyOS.in/
+       <p>`,
       email
     );
     if (!isSend) {
