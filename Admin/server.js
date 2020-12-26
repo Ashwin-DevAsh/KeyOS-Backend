@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const devices = require("./Routes/Devices");
+const jwtConfig = require("./Security/jwtConfig");
 
 var corsOptions = {
   origin: "*",
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 8000;
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(jwtConfig);
 app.use(devices);
 
 app.listen(PORT, () => {
