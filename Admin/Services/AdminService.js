@@ -13,7 +13,7 @@ class AdminService {
       var admin = this.admins[i];
       console.log(admin);
       if (admin.email == email && password == admin.password) {
-        return i;
+        return admin;
       }
     }
 
