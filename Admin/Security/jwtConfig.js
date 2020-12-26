@@ -1,3 +1,5 @@
+const jwt = require("jsonwebtoken");
+
 module.exports = JwtConfig = async (req, res, next) => {
   console.log("Middle ware");
   try {
