@@ -9,7 +9,7 @@ class AdminService {
   ];
 
   getAdmin = (email, password) => {
-    for (i in this.admins) {
+    for (var i in this.admins) {
       if (i.email == email && password == i.password) {
         return i;
       }
