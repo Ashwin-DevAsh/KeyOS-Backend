@@ -1,4 +1,5 @@
 const AdminService = require("../Services/AdminService");
+const jwt = require("jsonwebtoken");
 
 class AdminController {
   adminService = new AdminService();
@@ -12,7 +13,6 @@ class AdminController {
     }
 
     var admin = this.adminService.getAdmin(email, password);
-    console.log(admin);
     if (!!admin) {
       var token = await jwt.sign({ name, email }, process.env.PRIVATE_KEY, {
         expiresIn: "24h",
