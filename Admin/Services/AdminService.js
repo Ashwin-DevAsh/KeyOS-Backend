@@ -9,9 +9,10 @@ class AdminService {
   ];
 
   getAdmin = (email, password) => {
-    for (var i in this.admins) {
-      console.log(i);
-      if (i.email == email && password == i.password) {
+    for (var i = 0; i < this.admins.length; i++) {
+      var admin = this.admins[i];
+      console.log(admin);
+      if (admin.email == email && password == admin.password) {
         return i;
       }
     }
