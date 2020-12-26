@@ -19,9 +19,9 @@ const PORT = process.env.PORT || 8000;
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(admins);
 app.use(jwtConfig);
 app.use(devices);
-app.use(admins);
 
 app.listen(PORT, () => {
   console.log("Listining on ", PORT);
