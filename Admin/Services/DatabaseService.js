@@ -9,7 +9,7 @@ class DatabaseService {
     var allDevices = await this.getAll(postgres);
     var active = await this.getLaunchedDevice(postgres, "true");
     var inactive = await this.getLaunchedDevice(postgres, "false");
-    var justInstalled = await this.buildQuery(postgres);
+    var justInstalled = await this.getInstalledDevice(postgres);
 
     (await postgres).release();
     return { allDevices, active, inactive, justInstalled };
@@ -47,7 +47,7 @@ class DatabaseService {
     ).rows;
   }
 
-  async getInstalledDevice(postgres, isLaunched) {
+  async getInstalledDevice(postgres) {
     return (
       await postgres.query(
         `select
