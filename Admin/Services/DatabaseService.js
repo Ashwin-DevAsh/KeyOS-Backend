@@ -19,9 +19,9 @@ class DatabaseService {
         []
       )
     ).rows;
-    var active = this.buildQuery("true");
-    var inactive = this.buildQuery("false");
-    var justInstalled = this.buildQuery(null);
+    var active = this.buildQuery(postgres, true);
+    var inactive = this.buildQuery(postgres, false);
+    var justInstalled = this.buildQuery(postgres, null);
 
     (await postgres).release();
     return { allDevices, active, inactive, justInstalled };
