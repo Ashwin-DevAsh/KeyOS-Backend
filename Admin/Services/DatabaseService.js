@@ -6,7 +6,17 @@ class DatabaseService {
 
   getAllDevices = async () => {
     var postgres = await this.pool.connect();
-    var allDevices = (
+    var allDevices = await this.getAll(postgres);
+    var active = await this.getLaunchedDevice(postgres, "true");
+    var inactive = await this.getLaunchedDevice(postgres, "false");
+    var justInstalled = await this.buildQuery(postgres);
+
+    (await postgres).release();
+    return { allDevices, active, inactive, justInstalled };
+  };
+
+  async getAll(postgres) {
+    return (
       await postgres.query(
         `select
                 deviceID, 
@@ -19,15 +29,9 @@ class DatabaseService {
         []
       )
     ).rows;
-    var active = await this.buildQuery(postgres, "true");
-    var inactive = await this.buildQuery(postgres, "false");
-    var justInstalled = await this.buildQuery(postgres, null);
+  }
 
-    (await postgres).release();
-    return { allDevices, active, inactive, justInstalled };
-  };
-
-  async buildQuery(postgres, isLaunched) {
+  async getLaunchedDevice(postgres, isLaunched) {
     return (
       await postgres.query(
         `select
@@ -37,8 +41,24 @@ class DatabaseService {
                 sdk,
                 versionName,
                 isLaunched
-        from devices where isLaunched is $1`,
+        from devices where isLaunched = $1`,
         [isLaunched]
+      )
+    ).rows;
+  }
+
+  async getInstalledDevice(postgres, isLaunched) {
+    return (
+      await postgres.query(
+        `select
+                deviceID, 
+                brand,
+                model,
+                sdk,
+                versionName,
+                isLaunched
+        from devices where isLaunched is null`,
+        []
       )
     ).rows;
   }
