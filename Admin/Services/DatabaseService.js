@@ -21,7 +21,7 @@ class DatabaseService {
     ).rows;
     var active = await this.buildQuery(postgres, "true");
     var inactive = await this.buildQuery(postgres, "false");
-    var justInstalled = await this.buildQuery(postgres, "null");
+    var justInstalled = await this.buildQuery(postgres, null);
 
     (await postgres).release();
     return { allDevices, active, inactive, justInstalled };
@@ -37,7 +37,7 @@ class DatabaseService {
                 sdk,
                 versionName,
                 isLaunched
-        from devices where isLaunched = $1`,
+        from devices where isLaunched is $1`,
         [isLaunched]
       )
     ).rows;
