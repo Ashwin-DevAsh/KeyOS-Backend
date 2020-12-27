@@ -19,8 +19,8 @@ class DatabaseService {
         []
       )
     ).rows;
-    var active = await this.buildQuery(postgres, true);
-    var inactive = await this.buildQuery(postgres, false);
+    var active = await this.buildQuery(postgres, "true");
+    var inactive = await this.buildQuery(postgres, "false");
     var justInstalled = await this.buildQuery(postgres, null);
 
     (await postgres).release();
