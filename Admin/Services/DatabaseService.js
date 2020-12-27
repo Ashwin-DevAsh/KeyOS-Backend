@@ -19,15 +19,15 @@ class DatabaseService {
         []
       )
     ).rows;
-    var active = (await postgres.query(this.buildQuery(true), [])).rows;
-    var inactive = (await postgres.query(this.buildQuery(false), [])).rows;
-    var justInstalled = (await postgres.query(this.buildQuery(null), [])).rows;
+    var active = (await postgres.query(this.buildQuery(), [true])).rows;
+    var inactive = (await postgres.query(this.buildQuery(), [false])).rows;
+    var justInstalled = (await postgres.query(this.buildQuery(), [null])).rows;
 
     (await postgres).release();
     return { allDevices, active, inactive, justInstalled };
   };
 
-  buildQuery(isLaunched) {
+  buildQuery() {
     return `select
                 deviceID, 
                 brand,
@@ -35,7 +35,7 @@ class DatabaseService {
                 sdk,
                 versionName,
                 isLaunched
-        from devices where isLaunched is ${isLaunched}
+        from devices where isLaunched is $1
     `;
   }
 
