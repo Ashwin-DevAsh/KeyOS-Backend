@@ -15,14 +15,29 @@ class DatabaseService {
                 sdk,
                 versionName,
                 isLaunched
-        from devices
-    `,
+        from devices`,
         []
       )
     ).rows;
+    var active = (await postgres.query(this.buildQuery(true), [])).rows;
+    var inactive = (await postgres.query(this.buildQuery(false), [])).rows;
+    var justInstalled = (await postgres.query(this.buildQuery(null), [])).rows;
+
     (await postgres).release();
-    return allDevices;
+    return { allDevices, active, inactive, justInstalled };
   };
+
+  buildQuery(isLaunched) {
+    return `select
+                deviceID, 
+                brand,
+                model,
+                sdk,
+                versionName,
+                isLaunched
+        from devices where isLaunched = ${isLaunched}
+    `;
+  }
 
   getDeviceConfig = async (deviceID) => {
     var postgres = await this.pool.connect();
