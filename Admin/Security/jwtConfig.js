@@ -7,7 +7,7 @@ module.exports = JwtConfig = async (req, res, next) => {
     next();
   } catch (e) {
     console.log(e);
-    res.send({ message: "invalid admin" });
+    res.send({ result: "invalid admin" });
     return;
   }
 };
