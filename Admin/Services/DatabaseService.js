@@ -35,7 +35,7 @@ class DatabaseService {
                 sdk,
                 versionName,
                 isLaunched
-        from devices where isLaunched = ${isLaunched}
+        from devices where isLaunched is ${isLaunched}
     `;
   }
 
