@@ -5,8 +5,8 @@ class DevicesController {
 
   getAllDevices = async (req, res) => {
     try {
-      var allDevices = await this.databaseService.getAllDevices();
-      res.send({ result: "success", allDevices });
+      var devices = await this.databaseService.getAllDevices();
+      res.send({ result: "success", devices });
     } catch (e) {
       console.log(e);
       res.send({ result: "failure" });
