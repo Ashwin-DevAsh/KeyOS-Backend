@@ -25,7 +25,7 @@ class DatabaseService {
                 sdk,
                 versionName,
                 isLaunched
-        from devices`,
+        from devices ORDER BY ctid DESC;`,
         []
       )
     ).rows;
@@ -41,7 +41,7 @@ class DatabaseService {
                 sdk,
                 versionName,
                 isLaunched
-        from devices where isLaunched = $1`,
+        from devices where isLaunched = $1 ORDER  BY ctid DESC`,
         [isLaunched]
       )
     ).rows;
@@ -57,7 +57,7 @@ class DatabaseService {
                 sdk,
                 versionName,
                 isLaunched
-        from devices where isLaunched is null`,
+        from devices where isLaunched is null ORDER  BY ctid DESC`,
         []
       )
     ).rows;
