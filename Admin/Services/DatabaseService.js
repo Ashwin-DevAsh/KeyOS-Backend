@@ -74,7 +74,7 @@ class DatabaseService {
     if (deviceConfig.length == 0) {
       return {};
     }
-    return deviceConfig[0];
+    return deviceConfig[0]["config"];
   };
 }
 
