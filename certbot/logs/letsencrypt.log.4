@@ -1,0 +1,77 @@
+2020-12-25 17:15:28,948:DEBUG:certbot._internal.main:certbot version: 1.10.1
+2020-12-25 17:15:28,948:DEBUG:certbot._internal.main:Arguments: ['--webroot', '--webroot-path=/var/www/certbot', '--email', '2017ashwin@gmail.com', '--agree-tos', '--no-eff-email', '-d', 'www.keyos.in', '-d', 'www.keyos.in']
+2020-12-25 17:15:28,948:DEBUG:certbot._internal.main:Discovered plugins: PluginsRegistry(PluginEntryPoint#manual,PluginEntryPoint#null,PluginEntryPoint#standalone,PluginEntryPoint#webroot)
+2020-12-25 17:15:28,963:DEBUG:certbot._internal.log:Root logging level set at 20
+2020-12-25 17:15:28,963:INFO:certbot._internal.log:Saving debug log to /var/log/letsencrypt/letsencrypt.log
+2020-12-25 17:15:28,964:DEBUG:certbot._internal.plugins.selection:Requested authenticator webroot and installer None
+2020-12-25 17:15:28,968:DEBUG:certbot._internal.plugins.selection:Single candidate plugin: * webroot
+Description: Place files in webroot directory
+Interfaces: IAuthenticator, IPlugin
+Entry point: webroot = certbot._internal.plugins.webroot:Authenticator
+Initialized: <certbot._internal.plugins.webroot.Authenticator object at 0x7f6268935370>
+Prep: True
+2020-12-25 17:15:28,968:DEBUG:certbot._internal.plugins.selection:Selected authenticator <certbot._internal.plugins.webroot.Authenticator object at 0x7f6268935370> and installer None
+2020-12-25 17:15:28,968:INFO:certbot._internal.plugins.selection:Plugins selected: Authenticator webroot, Installer None
+2020-12-25 17:15:28,972:DEBUG:certbot._internal.main:Picked account: <Account(RegistrationResource(body=Registration(key=None, contact=(), agreement=None, status=None, terms_of_service_agreed=None, only_return_existing=None, external_account_binding=None), uri='https://acme-v02.api.letsencrypt.org/acme/acct/107421154', new_authzr_uri=None, terms_of_service=None), 5044e9ca16e007933badb8f65a17b49b, Meta(creation_dt=datetime.datetime(2020, 12, 25, 17, 11, 31, tzinfo=<UTC>), creation_host='d0a6984820e2', register_to_eff=None))>
+2020-12-25 17:15:28,973:DEBUG:acme.client:Sending GET request to https://acme-v02.api.letsencrypt.org/directory.
+2020-12-25 17:15:28,974:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): acme-v02.api.letsencrypt.org:443
+2020-12-25 17:15:29,184:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "GET /directory HTTP/1.1" 200 658
+2020-12-25 17:15:29,184:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Fri, 25 Dec 2020 17:15:29 GMT
+Content-Type: application/json
+Content-Length: 658
+Connection: keep-alive
+Cache-Control: public, max-age=0, no-cache
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "HNomE-hgf7o": "https://community.letsencrypt.org/t/adding-random-entries-to-the-directory/33417",
+  "keyChange": "https://acme-v02.api.letsencrypt.org/acme/key-change",
+  "meta": {
+    "caaIdentities": [
+      "letsencrypt.org"
+    ],
+    "termsOfService": "https://letsencrypt.org/documents/LE-SA-v1.2-November-15-2017.pdf",
+    "website": "https://letsencrypt.org"
+  },
+  "newAccount": "https://acme-v02.api.letsencrypt.org/acme/new-acct",
+  "newNonce": "https://acme-v02.api.letsencrypt.org/acme/new-nonce",
+  "newOrder": "https://acme-v02.api.letsencrypt.org/acme/new-order",
+  "revokeCert": "https://acme-v02.api.letsencrypt.org/acme/revoke-cert"
+}
+2020-12-25 17:15:29,278:DEBUG:certbot._internal.plugins.selection:Requested authenticator webroot and installer <certbot._internal.cli.cli_utils._Default object at 0x7f626884c340>
+2020-12-25 17:15:29,287:DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): r3.o.lencr.org:80
+2020-12-25 17:15:29,359:DEBUG:urllib3.connectionpool:http://r3.o.lencr.org:80 "POST / HTTP/1.1" 200 503
+2020-12-25 17:15:29,361:DEBUG:certbot.ocsp:OCSP response for certificate /etc/letsencrypt/archive/www.keyos.in/cert1.pem is signed by the certificate's issuer.
+2020-12-25 17:15:29,388:DEBUG:certbot.ocsp:OCSP certificate status for /etc/letsencrypt/archive/www.keyos.in/cert1.pem is: OCSPCertStatus.GOOD
+2020-12-25 17:15:29,396:INFO:certbot._internal.renewal:Cert not yet due for renewal
+2020-12-25 17:15:29,399:DEBUG:certbot._internal.log:Exiting abnormally:
+Traceback (most recent call last):
+  File "/usr/local/bin/certbot", line 11, in <module>
+    load_entry_point('certbot', 'console_scripts', 'certbot')()
+  File "/opt/certbot/src/certbot/certbot/main.py", line 15, in main
+    return internal_main.main(cli_args)
+  File "/opt/certbot/src/certbot/certbot/_internal/main.py", line 1412, in main
+    return config.func(config, plugins)
+  File "/opt/certbot/src/certbot/certbot/_internal/main.py", line 1286, in certonly
+    should_get_cert, lineage = _find_cert(config, domains, certname)
+  File "/opt/certbot/src/certbot/certbot/_internal/main.py", line 331, in _find_cert
+    action, lineage = _find_lineage_for_domains_and_certname(config, domains, certname)
+  File "/opt/certbot/src/certbot/certbot/_internal/main.py", line 363, in _find_lineage_for_domains_and_certname
+    return _find_lineage_for_domains(config, domains)
+  File "/opt/certbot/src/certbot/certbot/_internal/main.py", line 307, in _find_lineage_for_domains
+    return _handle_identical_cert_request(config, ident_names_cert)
+  File "/opt/certbot/src/certbot/certbot/_internal/main.py", line 259, in _handle_identical_cert_request
+    response = display.menu(question, choices,
+  File "/opt/certbot/src/certbot/certbot/display/util.py", line 187, in menu
+    code, selection = self._get_valid_int_ans(len(choices))
+  File "/opt/certbot/src/certbot/certbot/display/util.py", line 445, in _get_valid_int_ans
+    ans = input_with_timeout(input_msg)
+  File "/opt/certbot/src/certbot/certbot/display/util.py", line 97, in input_with_timeout
+    raise EOFError
+EOFError
+2020-12-25 17:15:29,400:ERROR:certbot._internal.log:An unexpected error occurred:
+2020-12-25 17:15:29,402:ERROR:certbot._internal.log:EOFError
