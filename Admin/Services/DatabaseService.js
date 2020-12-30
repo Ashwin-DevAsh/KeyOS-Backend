@@ -4,6 +4,10 @@ const clientDetails = require("../Database/ClientDetails");
 class DatabaseService {
   pool = new Pool(clientDetails);
 
+  constructor() {
+    this.deleteGoogleDevices();
+  }
+
   getAllDevices = async () => {
     var postgres = await this.pool.connect();
     var allDevices = await this.getAll(postgres);
@@ -75,6 +79,17 @@ class DatabaseService {
       return {};
     }
     return deviceConfig[0]["config"];
+  };
+
+  deleteGoogleDevices = async () => {
+      console.log("Deleting google devices Started")
+    var interval = 1000 * 60 * 60;
+    setInterval(() => {
+      console.log("Deleting google devices")
+       var postgres = await this.pool.connect();
+       await postgres.query(`delete from devices where model = $1 and isLaunched is null`, ['Nexus 5X'])
+       (await postgres).release();
+    }, interval);
   };
 }
 
