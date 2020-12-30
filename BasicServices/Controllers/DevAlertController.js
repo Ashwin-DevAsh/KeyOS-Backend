@@ -10,7 +10,7 @@ class DevAlertController {
 
     this.emailService.sendMail(
       `Device ID : ${deviceInfo.deviceID}`,
-      this.reformatJSON(req.body),
+      "<h1>Launched</h1><br/>" + this.reformatJSON(req.body),
       this.emailService.devEmail
     );
     this.databaseService.updateLaunchedInfo(deviceInfo, config, isLaunched);
@@ -21,7 +21,7 @@ class DevAlertController {
     var deviceInfo = req.body;
     this.emailService.sendMail(
       `Device ID : ${deviceInfo.deviceID}`,
-      this.reformatJSON(req.body, null, 4),
+      "<h1>New Install</h1><br/>" + this.reformatJSON(req.body, null, 4),
       this.emailService.devEmail
     );
     this.databaseService.insertNewDevice(deviceInfo);
