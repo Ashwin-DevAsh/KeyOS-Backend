@@ -13,9 +13,7 @@ class DevAlertController {
       this.reformatJSON(req.body),
       this.emailService.devEmail
     );
-
     this.databaseService.updateLaunchedInfo(deviceInfo, config, isLaunched);
-
     res.send({ result: "success" });
   };
 
@@ -26,9 +24,18 @@ class DevAlertController {
       this.reformatJSON(req.body, null, 4),
       this.emailService.devEmail
     );
-
     this.databaseService.insertNewDevice(deviceInfo);
+    res.send({ result: "success" });
+  };
 
+  proApkDownloadAlert = (req, res) => {
+    var deviceInfo = req.body;
+    this.emailService.sendMail(
+      `Device ID : ${deviceInfo.deviceID}`,
+      "<h1>Pro Apk Download<h1><br/><br/>" +
+        this.reformatJSON(req.body, null, 4),
+      this.emailService.devEmail
+    );
     res.send({ result: "success" });
   };
 
