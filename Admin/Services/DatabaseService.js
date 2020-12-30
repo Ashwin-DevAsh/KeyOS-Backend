@@ -82,7 +82,7 @@ class DatabaseService {
   };
 
   deleteGoogleDevices = async () => {
-      console.log("Deleting google devices Started")
+    console.log("Deleting google devices Started")
     var interval = 1000 * 60 * 60;
     setInterval(() => {
       console.log("Deleting google devices")
