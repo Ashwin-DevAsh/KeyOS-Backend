@@ -82,13 +82,16 @@ class DatabaseService {
   };
 
   deleteGoogleDevices = async () => {
-    console.log("Deleting google devices Started")
+    console.log("Deleting google devices Started");
     var interval = 1000 * 60 * 60;
-    setInterval(() => {
-      console.log("Deleting google devices")
-       var postgres = await this.pool.connect();
-       await postgres.query(`delete from devices where model = $1 and isLaunched is null`, ['Nexus 5X'])
-       (await postgres).release();
+    setInterval(async () => {
+      console.log("Deleting google devices");
+      var postgres = await this.pool.connect();
+      await postgres
+        .query(`delete from devices where model = $1 and isLaunched is null`, [
+          "Nexus 5X",
+        ])(await postgres)
+        .release();
     }, interval);
   };
 }
