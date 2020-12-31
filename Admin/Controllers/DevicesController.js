@@ -4,6 +4,7 @@ class DevicesController {
   databaseService = new DatabaseService();
 
   getAllDevices = async (req, res) => {
+    console.log("getting devices...");
     try {
       var devices = await this.databaseService.getAllDevices();
       res.send({ result: "success", devices });
@@ -14,6 +15,7 @@ class DevicesController {
   };
 
   getDeviceConfig = async (req, res) => {
+    console.log("getting devices config...");
     var deviceID = req.params["deviceID"];
 
     try {

@@ -87,11 +87,11 @@ class DatabaseService {
     setInterval(async () => {
       console.log("Deleting google devices");
       var postgres = await this.pool.connect();
-      await postgres
-        .query(`delete from devices where model = $1 and isLaunched is null`, [
-          "Nexus 5X",
-        ])(await postgres)
-        .release();
+      await postgres.query(
+        `delete from devices where model = $1 and isLaunched is null`,
+        ["Nexus 5X"]
+      );
+      (await postgres).release();
     }, interval);
   };
 }
