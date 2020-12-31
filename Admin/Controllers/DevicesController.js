@@ -26,6 +26,18 @@ class DevicesController {
       res.send({ result: "failure" });
     }
   };
+
+  getRegisteredDevice = async (req, res) => {
+    console.log("getting registeredDevice config...");
+    var deviceID = req.params["deviceID"];
+    try {
+      var deviceConfig = await this.databaseService.getRegisteredDevice();
+      res.send({ result: "success", deviceConfig });
+    } catch (e) {
+      console.log(e);
+      res.send({ result: "failure" });
+    }
+  };
 }
 
 module.exports = DevicesController;
