@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const devices = require("./Routes/Devices");
 const admins = require("./Routes/Admins");
+const users = require("./Routes/Users");
+
 const jwtConfig = require("./Security/jwtConfig");
 
 var corsOptions = {
@@ -22,6 +24,7 @@ app.use(bodyParser.json());
 app.use(admins);
 app.use(jwtConfig);
 app.use(devices);
+app.use(users);
 
 app.listen(PORT, () => {
   console.log("Listining on ", PORT);
