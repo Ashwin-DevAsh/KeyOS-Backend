@@ -85,7 +85,7 @@ class DatabaseService {
     var postgres = await this.pool.connect();
     var devices = (
       await postgres.query(
-        `select * from devices where (cast(config->>'recoveryEmail' as varchar) != ''`
+        `select * from devices where (cast(config->>'recoveryEmail' as varchar)) != ''`
       )
     ).rows;
     (await postgres).release();
