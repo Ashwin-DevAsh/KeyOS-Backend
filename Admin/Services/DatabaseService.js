@@ -81,11 +81,11 @@ class DatabaseService {
     return deviceConfig[0]["config"];
   };
 
-  getRegistered = async () => {
+  getRegisteredDevice = async () => {
     var postgres = await this.pool.connect();
     var devices = (
       await postgres.query(
-        `select config from devices where (cast(config->>'recoveryEmail' as varchar) != ''`
+        `select * from devices where (cast(config->>'recoveryEmail' as varchar) != ''`
       )
     ).rows;
     (await postgres).release();
