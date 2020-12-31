@@ -101,7 +101,7 @@ class DatabaseService {
          from 
             devices 
          where 
-           (cast(config->>'recoveryEmail' as varchar)) != '' and group by (cast(config->>'recoveryEmail' as varchar))`
+           (cast(config->>'recoveryEmail' as varchar)) != '' and group by email`
       )
     ).rows;
     (await postgres).release();
