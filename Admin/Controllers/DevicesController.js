@@ -29,10 +29,9 @@ class DevicesController {
 
   getRegisteredDevice = async (req, res) => {
     console.log("getting registeredDevice config...");
-    var deviceID = req.params["deviceID"];
     try {
-      var deviceConfig = await this.databaseService.getRegisteredDevice();
-      res.send({ result: "success", deviceConfig });
+      var devices = await this.databaseService.getRegisteredDevice();
+      res.send({ result: "success", devices });
     } catch (e) {
       console.log(e);
       res.send({ result: "failure" });
