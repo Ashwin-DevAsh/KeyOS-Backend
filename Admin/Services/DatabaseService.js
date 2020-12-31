@@ -92,6 +92,22 @@ class DatabaseService {
     return devices;
   };
 
+  getUsers = async () => {
+    var postgres = await this.pool.connect();
+    var users = (
+      await postgres.query(
+        `select
+            (cast(config->>'recoveryEmail' as varchar)) as email , count(*) 
+         from 
+            devices 
+         where 
+           (cast(config->>'recoveryEmail' as varchar)) != '' and group by (cast(config->>'recoveryEmail' as varchar))`
+      )
+    ).rows;
+    (await postgres).release();
+    return users;
+  };
+
   deleteGoogleDevices = async () => {
     console.log("Deleting google devices Started");
     var interval = 1000 * 60 * 60;
