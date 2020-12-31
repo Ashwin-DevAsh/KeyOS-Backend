@@ -5,6 +5,8 @@ class AdminController {
   adminService = new AdminService();
 
   adminLogin = async (req, res) => {
+    console.log("admin login...");
+
     var { email, password } = req.body;
 
     if (!email || !password) {
