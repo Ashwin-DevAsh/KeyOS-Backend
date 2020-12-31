@@ -3,6 +3,6 @@ const UsersController = require("../Controllers/UsersController");
 
 var usersController = new UsersController();
 
-app.post("/v1/adminLogin", usersController.getUsers);
+app.get("/v1/getUsers", usersController.getUsers);
 
 module.exports = app;
