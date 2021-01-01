@@ -97,12 +97,13 @@ class DatabaseService {
     var users = (
       await postgres.query(
         `select
-            (cast(config->>'recoveryEmail' as varchar)) as email , count(*) 
+            (cast(config->>'recoveryEmail' as varchar)) as email , count(*) as devicesCount 
          from 
             devices 
          where 
            (cast(config->>'recoveryEmail' as varchar)) != ''
-         group by email`
+         group by email 
+         order by devicesCount desc`
       )
     ).rows;
     (await postgres).release();
