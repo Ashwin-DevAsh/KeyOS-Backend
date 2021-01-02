@@ -5,7 +5,9 @@ create table Devices(
       sdk varchar,
       versionName varchar,
       isLaunched varchar,
-      config json
+      config json,
+      isOnline boolean default FALSE,
+      installedAt timestamp with time zone default CURRENT_TIMESTAMP
 );
 
 
