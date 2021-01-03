@@ -97,7 +97,7 @@ class DatabaseService {
     var users = (
       await postgres.query(
         `select
-            (cast(config->>'recoveryEmail' as varchar)) as email , count(*) as devicesCount 
+            (cast(config->>'recoveryEmail' as varchar)) as email , count(*) as devicesCount , string_agg(deviceID::text, ',') as deviceID
          from 
             devices 
          where 
