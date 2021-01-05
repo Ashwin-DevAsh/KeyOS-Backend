@@ -16,7 +16,7 @@ io.on("connection", (client) => {
         if (err) {
           console.log(err);
         } else {
-          databaseService.updateOnlineStatus(id, client.id);
+          databaseService.updateOnline(id, client.id);
         }
       });
     } catch (err) {
