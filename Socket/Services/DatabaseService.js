@@ -7,7 +7,7 @@ class DatabaseService {
   updateOnline = async (deviceID, socketID) => {
     var postgres = await this.pool.connect();
     await postgres.query(
-      `update Devices set isOnline = true , socketID = $2 where device id = $1`,
+      `update Devices set isOnline = true , socketID = $2 where deviceid = $1`,
       [deviceID, socketID]
     );
     (await postgres).release();
@@ -16,7 +16,7 @@ class DatabaseService {
   updateOffline = async (socketID) => {
     var postgres = await this.pool.connect();
     await postgres.query(
-      `update Devices set isOnline = false , socketID = null where device id = $1`,
+      `update Devices set isOnline = false , socketID = null where deviceid = $1`,
       [socketID]
     );
     (await postgres).release();
