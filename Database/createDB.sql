@@ -10,4 +10,7 @@ create table Devices(
       installedAt timestamp with time zone default CURRENT_TIMESTAMP
 );
 
+ALTER TABLE Devices
+ADD COLUMN socketID varchar;
+
 
