@@ -4,11 +4,20 @@ const clientDetails = require("../Database/ClientDetails");
 class DatabaseService {
   pool = new Pool(clientDetails);
 
-  updateOnlineStatus = async (deviceID, isOnline) => {
+  updateOnline = async (deviceID, socketID) => {
     var postgres = await this.pool.connect();
     await postgres.query(
-      `update Devices set isOnline = $2 where device id = $1`,
-      [deviceID, isOnline]
+      `update Devices set isOnline = true , socketID = $2 where device id = $1`,
+      [deviceID, socketID]
+    );
+    (await postgres).release();
+  };
+
+  updateOffline = async (socketID) => {
+    var postgres = await this.pool.connect();
+    await postgres.query(
+      `update Devices set isOnline = false , socketID = null where device id = $1`,
+      [socketID]
     );
     (await postgres).release();
   };

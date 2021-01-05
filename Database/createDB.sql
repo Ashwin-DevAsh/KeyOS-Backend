@@ -7,10 +7,8 @@ create table Devices(
       isLaunched varchar,
       config json,
       isOnline boolean default FALSE,
+      socketID varchar,
       installedAt timestamp with time zone default CURRENT_TIMESTAMP
 );
-
-ALTER TABLE Devices
-ADD COLUMN socketID varchar;
 
 

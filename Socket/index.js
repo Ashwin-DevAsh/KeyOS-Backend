@@ -11,16 +11,22 @@ io.on("connection", (client) => {
   client.on("getInformation", (data) => {
     try {
       var id = data["deviceID"];
+
       client.join(id, (err) => {
         if (err) {
           console.log(err);
         } else {
-          databaseService.updateOnlineStatus(id, true);
+          databaseService.updateOnlineStatus(id, client.id);
         }
       });
     } catch (err) {
       console.log(err);
     }
+  });
+
+  socket.on("disconnect", function () {
+    console.log("Got disconnect!");
+    databaseService.updateOffline(client.id);
   });
 });
 

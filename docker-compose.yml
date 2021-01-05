@@ -8,6 +8,14 @@ services:
     volumes:
       - ./Database/data:/var/lib/postgresql/data
 
+  admin:
+    build: Admin
+    ports:
+      - 9000:8000
+    volumes:
+      - ./Database:/Database
+      - ./env:/env
+
   basicservices:
     build: BasicServices
     ports:
@@ -16,10 +24,10 @@ services:
       - ./Database:/Database
       - ./env:/env
 
-  admin:
-    build: Admin
+  socket:
+    build: Socket
     ports:
-      - 9000:8000
+      - 7000:8000
     volumes:
       - ./Database:/Database
       - ./env:/env
