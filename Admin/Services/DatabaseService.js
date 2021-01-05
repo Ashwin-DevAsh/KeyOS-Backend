@@ -29,7 +29,7 @@ class DatabaseService {
                 sdk,
                 versionName,
                 isLaunched,
-                isOnlinse,
+                isOnline,
                 installedAt
         from devices ORDER BY ctid DESC;`,
         []
@@ -47,7 +47,7 @@ class DatabaseService {
                 sdk,
                 versionName,
                 isLaunched,
-                isOnlinse,
+                isOnline,
                 installedAt
         from devices where isLaunched = $1 ORDER  BY ctid DESC`,
         [isLaunched]
@@ -65,7 +65,7 @@ class DatabaseService {
                 sdk,
                 versionName,
                 isLaunched,
-                isOnlinse,
+                isOnline,
                 installedAt
         from devices where isLaunched is null ORDER  BY ctid DESC`,
         []
