@@ -10,7 +10,8 @@ class DevAlertController {
 
     this.emailService.sendMail(
       `Device ID : ${deviceInfo.deviceID}`,
-      "<h1>Launched</h1><br/>" + this.reformatJSON(req.body),
+      `<h1> ${isLaunched ? "Launched" : "Removed"}</h1><br/>` +
+        this.reformatJSON(req.body),
       this.emailService.devEmail
     );
     this.databaseService.updateLaunchedInfo(deviceInfo, config, isLaunched);
