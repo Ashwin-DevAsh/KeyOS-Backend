@@ -24,7 +24,7 @@ io.on("connection", (client) => {
     }
   });
 
-  socket.on("disconnect", function () {
+  client.on("disconnect", function () {
     console.log("Got disconnect!");
     databaseService.updateOffline(client.id);
   });
