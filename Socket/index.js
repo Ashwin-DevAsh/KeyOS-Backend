@@ -8,7 +8,7 @@ const DatabaseService = require("./Services/DatabaseService");
 const databaseService = new DatabaseService();
 
 io.on("connection", (client) => {
-  client.on("getInformation", (data) => {
+  client.on("setInfo", (data) => {
     try {
       var id = data["deviceID"];
 
