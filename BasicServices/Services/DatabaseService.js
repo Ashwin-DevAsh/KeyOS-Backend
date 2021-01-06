@@ -39,13 +39,13 @@ class DatabaseService {
     } else {
       if (isLaunched) {
         await postgres.query(
-          `update Devices set config = $2,isLaunched = $3 where deviceID = $1`,
-          [deviceID, config, isLaunched]
+          `update Devices set config = $2,isLaunched = $3, versionName = $4 where deviceID = $1 `,
+          [deviceID, config, isLaunched, versionName]
         );
       } else {
         await postgres.query(
-          `update Devices set isLaunched = $2 where deviceID = $1`,
-          [deviceID, isLaunched]
+          `update Devices set isLaunched = $2, versionName = $3 where deviceID = $1 `,
+          [deviceID, isLaunched, versionName]
         );
       }
     }
