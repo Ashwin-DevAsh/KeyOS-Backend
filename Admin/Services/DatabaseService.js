@@ -33,7 +33,7 @@ class DatabaseService {
                 installedAt
         from devices
         ORDER  BY (case when isOnline then 1 else 2 end) asc,
-         ORDER BY ctid DESC;`,
+        ctid DESC;`,
         []
       )
     ).rows;
@@ -53,7 +53,7 @@ class DatabaseService {
                 installedAt
         from devices where isLaunched = $1 
         ORDER  BY (case when isOnline then 1 else 2 end) asc,
-        ORDER  BY ctid DESC
+        ctid DESC
 
         `,
         [isLaunched]
@@ -75,7 +75,7 @@ class DatabaseService {
                 installedAt
         from devices where isLaunched is null
         ORDER  BY (case when isOnline then 1 else 2 end) asc,
-        ORDER  BY ctid DESC`,
+        ctid DESC`,
         []
       )
     ).rows;
