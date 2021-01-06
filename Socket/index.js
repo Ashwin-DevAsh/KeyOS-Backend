@@ -16,6 +16,7 @@ io.on("connection", (client) => {
         if (err) {
           console.log(err);
         } else {
+          console.log(id, client.id);
           databaseService.updateOnline(id, client.id);
         }
       });
