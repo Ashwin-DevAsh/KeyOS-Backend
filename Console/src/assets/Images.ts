@@ -22,8 +22,10 @@ import leftArrow from "./left-arrow.svg";
 import rightArrow from "./right-arrow.svg";
 import star from "./star.svg";
 import googlePlay from "./google_play.svg";
+import logo from "./logo.svg";
 
 export default {
+  logo,
   keyOS,
   mobile,
   ovelrect,
