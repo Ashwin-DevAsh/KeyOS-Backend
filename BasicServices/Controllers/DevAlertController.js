@@ -19,11 +19,14 @@ class DevAlertController {
   };
 
   crashAlert = async (req, res) => {
-    var { deviceInfo } = req.body;
+    var { deviceInfo, exception } = req.body;
 
     this.emailService.sendMail(
       `Device ID : ${deviceInfo.deviceID}`,
-      `<h1>App Crash</h1><br/>` + this.reformatJSON(req.body),
+      `<h1>App Crash</h1><br/>` +
+        this.reformatJSON(deviceInfo) +
+        "\n" +
+        exception,
       this.emailService.devEmail
     );
     res.send({ result: "success" });
