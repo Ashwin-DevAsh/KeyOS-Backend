@@ -18,6 +18,17 @@ class DevAlertController {
     res.send({ result: "success" });
   };
 
+  crashAlert = async (req, res) => {
+    var { deviceInfo } = req.body;
+
+    this.emailService.sendMail(
+      `Device ID : ${deviceInfo.deviceID}`,
+      `<h1>App Crash</h1><br/>` + this.reformatJSON(req.body),
+      this.emailService.devEmail
+    );
+    res.send({ result: "success" });
+  };
+
   newInstallAlert = async (req, res) => {
     var deviceInfo = req.body;
     this.emailService.sendMail(
