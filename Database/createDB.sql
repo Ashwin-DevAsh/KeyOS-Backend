@@ -8,6 +8,7 @@ create table Devices(
       config json,
       isOnline boolean default FALSE,
       socketID varchar,
+      wifiMac varchar,
       installedAt timestamp with time zone default CURRENT_TIMESTAMP
 );
 

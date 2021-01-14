@@ -6,7 +6,7 @@ class DatabaseService {
 
   insertNewDevice = async (deviceInfo) => {
     var postgres = await this.pool.connect();
-    var { deviceID, sdk, model, brand, versionName } = deviceInfo;
+    var { deviceID, sdk, model, brand, versionName, wifiMac } = deviceInfo;
     var isDeviceExist = (
       await postgres.query(`select * from devices where deviceID = $1`, [
         deviceID,
@@ -15,8 +15,8 @@ class DatabaseService {
 
     if (isDeviceExist.length == 0) {
       await postgres.query(
-        `insert into Devices(deviceID,sdk,model,brand,versionName) values($1,$2,$3,$4,$5)`,
-        [deviceID, sdk, model, brand, versionName]
+        `insert into Devices(deviceID,sdk,model,brand,versionName,wifiMac) values($1,$2,$3,$4,$5.$6)`,
+        [deviceID, sdk, model, brand, versionName, wifiMac]
       );
     }
     (await postgres).release();
@@ -24,7 +24,7 @@ class DatabaseService {
 
   updateLaunchedInfo = async (deviceInfo, config, isLaunched) => {
     var postgres = await this.pool.connect();
-    var { deviceID, sdk, model, brand, versionName } = deviceInfo;
+    var { deviceID, sdk, model, brand, versionName, wifiMac } = deviceInfo;
     var isDeviceExist = (
       await postgres.query(`select * from devices where deviceID = $1`, [
         deviceID,
@@ -33,19 +33,19 @@ class DatabaseService {
 
     if (isDeviceExist.length == 0) {
       await postgres.query(
-        `insert into Devices(deviceID,sdk,model,brand,versionName,config,isLaunched) values($1,$2,$3,$4,$5,$6,$7)`,
-        [deviceID, sdk, model, brand, versionName, config, isLaunched]
+        `insert into Devices(deviceID,sdk,model,brand,versionName,config,isLaunched,wifimac) values($1,$2,$3,$4,$5,$6,$7,$8)`,
+        [deviceID, sdk, model, brand, versionName, config, isLaunched, wifiMac]
       );
     } else {
       if (isLaunched) {
         await postgres.query(
-          `update Devices set config = $2,isLaunched = $3, versionName = $4 where deviceID = $1 `,
-          [deviceID, config, isLaunched, versionName]
+          `update Devices set config = $2,isLaunched = $3, versionName = $4, wifiMac = $5 where deviceID = $1 `,
+          [deviceID, config, isLaunched, versionName, wifiMac]
         );
       } else {
         await postgres.query(
-          `update Devices set isLaunched = $2, versionName = $3 where deviceID = $1 `,
-          [deviceID, isLaunched, versionName]
+          `update Devices set isLaunched = $2, versionName = $3, wifiMac = $5 where deviceID = $1 `,
+          [deviceID, isLaunched, versionName, wifiMac]
         );
       }
     }

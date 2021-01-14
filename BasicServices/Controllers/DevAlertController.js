@@ -25,7 +25,7 @@ class DevAlertController {
       `Device ID : ${deviceInfo.deviceID}`,
       `<h1>App Crash</h1><br/>` +
         this.reformatJSON(deviceInfo) +
-        "\n" +
+        "<br/>" +
         exception,
       this.emailService.devEmail
     );

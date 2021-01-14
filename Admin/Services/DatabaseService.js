@@ -30,7 +30,8 @@ class DatabaseService {
                 versionName,
                 isLaunched,
                 isOnline,
-                installedAt
+                installedAt,
+                wifiMac
         from devices
         ORDER  BY (case when isOnline then 1 else 2 end) asc,
         ctid DESC;`,
@@ -50,12 +51,11 @@ class DatabaseService {
                 versionName,
                 isLaunched,
                 isOnline,
-                installedAt
-        from devices where isLaunched = $1 
+                installedAt,
+                wifiMac
+        from devices where isLaunched = $1 and config is not null
         ORDER  BY (case when isOnline then 1 else 2 end) asc,
-        ctid DESC
-
-        `,
+        ctid DESC`,
         [isLaunched]
       )
     ).rows;
@@ -72,7 +72,8 @@ class DatabaseService {
                 versionName,
                 isLaunched,
                 isOnline,
-                installedAt
+                installedAt,
+                wifiMac
         from devices where isLaunched is null
         ORDER  BY (case when isOnline then 1 else 2 end) asc,
         ctid DESC`,
