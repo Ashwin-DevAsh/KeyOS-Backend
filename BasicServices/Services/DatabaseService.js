@@ -44,7 +44,7 @@ class DatabaseService {
         );
       } else {
         await postgres.query(
-          `update Devices set isLaunched = $2, versionName = $3, wifiMac = $5 where deviceID = $1 `,
+          `update Devices set isLaunched = $2, versionName = $3, wifiMac = $4 where deviceID = $1 `,
           [deviceID, isLaunched, versionName, wifiMac]
         );
       }
