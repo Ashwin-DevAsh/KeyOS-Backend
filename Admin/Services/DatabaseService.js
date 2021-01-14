@@ -34,7 +34,7 @@ class DatabaseService {
                 wifiMac
         from devices
         ORDER  BY (case when isOnline then 1 else 2 end) asc,
-        ctid DESC;`,
+        installedAt DESC;`,
         []
       )
     ).rows;
@@ -55,7 +55,7 @@ class DatabaseService {
                 wifiMac
         from devices where isLaunched = $1 and config is not null
         ORDER  BY (case when isOnline then 1 else 2 end) asc,
-        ctid DESC`,
+        installedAt DESC`,
         [isLaunched]
       )
     ).rows;
@@ -76,7 +76,7 @@ class DatabaseService {
                 wifiMac
         from devices where config is null
         ORDER  BY (case when isOnline then 1 else 2 end) asc,
-        ctid DESC`,
+        installedAt DESC`,
         []
       )
     ).rows;
@@ -149,8 +149,12 @@ class DatabaseService {
       console.log("Deleting google devices");
       var postgres = await this.pool.connect();
       await postgres.query(
-        `delete from devices where model = $1 and isLaunched is null`,
-        ["Nexus 5X"]
+        `delete from devices where brand = $1 and config is null`,
+        ["google"]
+      );
+      await postgres.query(
+        `delete from devices where brand = $1 and model like %Android%`,
+        ["google"]
       );
       (await postgres).release();
     }, interval);
