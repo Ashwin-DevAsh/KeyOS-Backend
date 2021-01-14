@@ -15,7 +15,7 @@ class DatabaseService {
 
     if (isDeviceExist.length == 0) {
       await postgres.query(
-        `insert into Devices(deviceID,sdk,model,brand,versionName,wifiMac) values($1,$2,$3,$4,$5.$6)`,
+        `insert into Devices(deviceID,sdk,model,brand,versionName,wifiMac) values($1,$2,$3,$4,$5,$6)`,
         [deviceID, sdk, model, brand, versionName, wifiMac]
       );
     }
