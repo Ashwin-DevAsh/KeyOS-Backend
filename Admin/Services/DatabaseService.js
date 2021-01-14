@@ -74,7 +74,7 @@ class DatabaseService {
                 isOnline,
                 installedAt,
                 wifiMac
-        from devices where isLaunched is null
+        from devices where config is null
         ORDER  BY (case when isOnline then 1 else 2 end) asc,
         ctid DESC`,
         []
