@@ -58,11 +58,10 @@ class DevAlertController {
     return `<p style="color:black">${text}<p>`;
   }
 
-  objectRecussion = (demo, output = "&ensp;", space = "&ensp;") => {
+  objectRecussion = (demo, output = "", space = "&ensp;") => {
     for (var i in demo) {
       let element = demo[i];
       var key = i === String(Number(i)) ? "" : i;
-
       if (typeof element == "object") {
         if (element.length != 0)
           output = this.objectRecussion(
@@ -71,9 +70,7 @@ class DevAlertController {
             space + space
           );
       } else {
-        output = `${output}${space}${
-          key ? `<h3>${key}</h3> is ` : ""
-        }${element}<br>`;
+        output = `${output}${space}${key ? `${key} is ` : ""}${element}<br>`;
       }
     }
     return output;
