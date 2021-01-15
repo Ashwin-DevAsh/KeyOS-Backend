@@ -70,6 +70,10 @@ class DevAlertController {
             space + space
           );
       } else {
+        var length = element.split(".").length;
+        if (length >= 3) {
+          element = element[length - 1];
+        }
         output = `${output}${space}${key ? `${key} is ` : ""}${element}<br>`;
       }
     }
