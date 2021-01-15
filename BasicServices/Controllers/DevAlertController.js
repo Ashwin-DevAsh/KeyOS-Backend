@@ -70,7 +70,9 @@ class DevAlertController {
             space + space
           );
       } else {
-        output = `${output}${space}${key ? `${key} is ` : ""}${element}<br>`;
+        output = `${output}${space}${
+          key ? `<h4>${key}</h4> is ` : ""
+        }${element}<br>`;
       }
     }
     return output;
