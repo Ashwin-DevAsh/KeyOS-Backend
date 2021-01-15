@@ -72,7 +72,9 @@ class DevAlertController {
       } else {
         var length = element.toString().split(".").length;
         if (length >= 3) {
-          element = element.toString().split(".")[length - 1];
+          element = `<a href="https://play.google.com/store/apps/details?id=${element}" >${
+            element.toString().split(".")[length - 1]
+          }</a>`;
         }
         output = `${output}${space}${key ? `${key} is ` : ""}${element}<br>`;
       }
