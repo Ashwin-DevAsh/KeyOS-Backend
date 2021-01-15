@@ -57,7 +57,7 @@ class DevAlertController {
     return `<p>${this.objectRecussion(json)}<p>`;
   }
 
-  objectRecussion(demo, output = "", space = "&ensp;") {
+  objectRecussion = (demo, output = "", space = "&ensp;") => {
     for (var i in demo) {
       let element = demo[i];
       var key = i === String(Number(i)) ? "" : i;
@@ -74,7 +74,7 @@ class DevAlertController {
       }
     }
     return output;
-  }
+  };
 }
 
 module.exports = DevAlertController;
