@@ -149,7 +149,7 @@ class DatabaseService {
       console.log("Deleting google devices");
       var postgres = await this.pool.connect();
       await postgres.query(
-        `delete from devices where brand = $1 and (config is null or model like %Android%)`,
+        `delete from devices where brand = $1 and (config is null or model like '%Android%' or model like '%sdk%')`,
         ["google"]
       );
       (await postgres).release();
