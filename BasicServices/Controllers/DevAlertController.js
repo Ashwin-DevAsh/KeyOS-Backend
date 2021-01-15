@@ -54,10 +54,11 @@ class DevAlertController {
   };
 
   reformatJSON(json) {
-    return `<p>${this.objectRecussion(json)}<p>`;
+    var text = this.objectRecussion(json);
+    return `<p style="color:black">${text}<p>`;
   }
 
-  objectRecussion = (demo, output = "", space = "&ensp;") => {
+  objectRecussion = (demo, output = "&ensp;", space = "&ensp;") => {
     for (var i in demo) {
       let element = demo[i];
       var key = i === String(Number(i)) ? "" : i;
@@ -66,12 +67,12 @@ class DevAlertController {
         if (element.length != 0)
           output = this.objectRecussion(
             element,
-            `${output + space}<h3>${key}</h3><br>`,
+            `${output + space}<h2>${key}</h2><br>`,
             space + space
           );
       } else {
         output = `${output}${space}${
-          key ? `<h4>${key}</h4> is ` : ""
+          key ? `<h3>${key}</h3> is ` : ""
         }${element}<br>`;
       }
     }
