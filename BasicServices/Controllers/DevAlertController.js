@@ -66,7 +66,7 @@ class DevAlertController {
         if (element.length != 0)
           output = this.objectRecussion(
             element,
-            `${output + space}${key} <br>`,
+            `${output + space} <br> ${key} <br>`,
             space + space
           );
       } else {
