@@ -70,7 +70,7 @@ class DevAlertController {
             space + space
           );
       } else {
-        var length = element.split(".").length;
+        var length = element.toString().split(".").length;
         if (length >= 3) {
           element = element[length - 1];
         }
