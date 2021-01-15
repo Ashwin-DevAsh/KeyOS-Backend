@@ -58,7 +58,7 @@ class DevAlertController {
     return `<p style="color:black">${text}<p>`;
   }
 
-  objectRecussion = (demo, output = "", space = "----") => {
+  objectRecussion = (demo, output = "", space = "<pre>") => {
     for (var i in demo) {
       let element = demo[i];
       var key = i === String(Number(i)) ? "" : i;
