@@ -72,7 +72,7 @@ class DevAlertController {
       } else {
         var length = element.toString().split(".").length;
         if (length >= 3) {
-          element = element[length - 1];
+          element = element.toString().split(".")[length - 1];
         }
         output = `${output}${space}${key ? `${key} is ` : ""}${element}<br>`;
       }
