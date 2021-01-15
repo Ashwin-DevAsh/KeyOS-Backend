@@ -61,7 +61,7 @@ class DevAlertController {
   objectRecussion = (demo, output = "", space = "&ensp;") => {
     for (var i in demo) {
       let element = demo[i];
-      var key = i; // === String(Number(i)) ? "" : i;
+      var key = i === String(Number(i)) ? "" : i;
       if (typeof element == "object") {
         if (element.length != 0)
           output = this.objectRecussion(
