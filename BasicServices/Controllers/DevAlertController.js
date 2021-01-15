@@ -55,10 +55,10 @@ class DevAlertController {
 
   reformatJSON(json) {
     var text = this.objectRecussion(json);
-    return `<p style="color:black;font-size:10px">${text}<p>`;
+    return `<p style="color:black;font-size:7.5px">${text}<p>`;
   }
 
-  objectRecussion = (demo, output = "", space = "&nbsp;") => {
+  objectRecussion = (demo, output = "", space = "&nbsp;&nbsp;") => {
     for (var i in demo) {
       let element = demo[i];
       var key = i === String(Number(i)) ? "" : i;
