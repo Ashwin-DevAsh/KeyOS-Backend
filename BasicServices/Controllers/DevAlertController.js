@@ -64,7 +64,7 @@ class DevAlertController {
 
       if (typeof element == "object") {
         if (element.length != 0)
-          output = objectRecussion(
+          output = this.objectRecussion(
             element,
             `${output + space}<h3>${key}</h3><br>`,
             space + space
