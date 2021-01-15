@@ -54,9 +54,26 @@ class DevAlertController {
   };
 
   reformatJSON(json) {
-    json = JSON.stringify(json, null, 4);
-    json = json.split('"').join("");
-    return `${json}`;
+    return `<p>${this.objectRecussion(json)}<p>`;
+  }
+
+  objectRecussion(demo, output = "", space = "&ensp;") {
+    for (var i in demo) {
+      let element = demo[i];
+      var key = i === String(Number(i)) ? "" : i;
+
+      if (typeof element == "object") {
+        if (element.length != 0)
+          output = objectRecussion(
+            element,
+            `${output + space}<h3>${key}</h3><br>`,
+            space + space
+          );
+      } else {
+        output = `${output}${space}${key ? `${key} is ` : ""}${element}<br>`;
+      }
+    }
+    return output;
   }
 }
 
