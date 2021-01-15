@@ -55,7 +55,7 @@ class DevAlertController {
 
   reformatJSON(json) {
     var text = this.objectRecussion(json);
-    return `<p style="color:black;font-size:7.5px">${text}<p>`;
+    return `<p style="color:black;font-size:10px">${text}<p>`;
   }
 
   objectRecussion = (demo, output = "", space = "&nbsp;&nbsp;") => {
