@@ -66,7 +66,7 @@ class DevAlertController {
         if (element.length != 0)
           output = this.objectRecussion(
             element,
-            `${output + space}<h2>${key}</h2>` +
+            `${output + space}<h2 style="margin:0;padding:0" >${key}</h2>` +
               (output.endsWith("<br>") ? "" : "<br>"),
             space + space
           );
