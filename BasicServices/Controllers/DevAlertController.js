@@ -55,7 +55,7 @@ class DevAlertController {
 
   reformatJSON(json) {
     var text = this.objectRecussion(json);
-    return `<p style="color:black;font-size:10px">${text}<p>`;
+    return `<p style="color:black;font-size:12px">${text}<p>`;
   }
 
   objectRecussion = (demo, output = "", space = "&nbsp;&nbsp;") => {
@@ -72,9 +72,7 @@ class DevAlertController {
       } else {
         var length = element.toString().split(".").length;
         if (length >= 3) {
-          element = `<a href="https://play.google.com/store/apps/details?id=${element}" >${
-            element.toString().split(".")[length - 1]
-          }</a>`;
+          element = `<a href="https://play.google.com/store/apps/details?id=${element}" >${element}</a>`;
         }
         output = `${output}${space}${key ? `${key} is ` : ""}${element}<br>`;
       }
