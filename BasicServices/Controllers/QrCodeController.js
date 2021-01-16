@@ -35,7 +35,7 @@ class QrCodeController {
       res.send({ result: "failed" });
       return;
     }
-    this.userPolicies = config;
+    this.userPolicies[deviceInfo.deviceID] = config;
     this.databaseService.updateLaunchedInfo(deviceInfo, config, false);
     res.send({ result: "success" });
   };
