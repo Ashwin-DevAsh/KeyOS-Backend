@@ -35,13 +35,15 @@ class QrCodeController {
       res.send({ result: "failed" });
       return;
     }
+    this.userPolicies = config;
     this.databaseService.updateLaunchedInfo(deviceInfo, config, false);
     res.send({ result: "success" });
   };
 
   getPolicyDataV2 = async (req, res) => {
     var id = req.params["id"];
-    var policyData = await this.databaseService.getDeviceConfig(id);
+    var policyData =
+      (await this.databaseService.getDeviceConfig(id)) || this.userPolicies[id];
 
     if (!policyData) {
       res.send(null);
