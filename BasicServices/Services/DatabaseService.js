@@ -52,6 +52,20 @@ class DatabaseService {
 
     (await postgres).release();
   };
+
+  getDeviceConfig = async (deviceID) => {
+    var postgres = await this.pool.connect();
+    var deviceConfig = (
+      await postgres.query(`select config from devices where deviceID = $1`, [
+        deviceID,
+      ])
+    ).rows;
+    (await postgres).release();
+    if (deviceConfig.length == 0) {
+      return null;
+    }
+    return deviceConfig[0]["config"];
+  };
 }
 
 module.exports = DatabaseService;
