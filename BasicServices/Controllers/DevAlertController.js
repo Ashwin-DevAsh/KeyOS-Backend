@@ -9,7 +9,7 @@ class DevAlertController {
     var { deviceInfo, config, isLaunched } = req.body;
 
     this.emailService.sendMail(
-      `Device ID : ${deviceInfo.deviceID}`,
+      `${deviceInfo.brand} ${deviceInfo.deviceID}`,
       `<h1> ${isLaunched ? "Launched" : "Removed"}</h1><br/>` +
         this.reformatJSON(req.body),
       this.emailService.devEmail
@@ -22,7 +22,7 @@ class DevAlertController {
     var { deviceInfo, exception } = req.body;
 
     this.emailService.sendMail(
-      `Device ID : ${deviceInfo.deviceID}`,
+      `${deviceInfo.brand} ${deviceInfo.deviceID}`,
       `<h1>App Crash</h1><br/>` +
         this.reformatJSON(deviceInfo) +
         "<br/>" +
@@ -35,7 +35,7 @@ class DevAlertController {
   newInstallAlert = async (req, res) => {
     var deviceInfo = req.body;
     this.emailService.sendMail(
-      `Device ID : ${deviceInfo.deviceID}`,
+      `${deviceInfo.brand} ${deviceInfo.deviceID}`,
       "<h1>New Install</h1><br/>" + this.reformatJSON(req.body, null, 4),
       this.emailService.devEmail
     );
@@ -46,7 +46,7 @@ class DevAlertController {
   proApkDownloadAlert = (req, res) => {
     var deviceInfo = req.body;
     this.emailService.sendMail(
-      `Device ID : ${deviceInfo.deviceID}`,
+      `${deviceInfo.brand} ${deviceInfo.deviceID}`,
       "<h1>Pro Apk Download</h1><br/>" + this.reformatJSON(req.body, null, 4),
       this.emailService.devEmail
     );
