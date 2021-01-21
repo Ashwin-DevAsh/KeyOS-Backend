@@ -1,0 +1,213 @@
+.features {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.top-text-features > h1 {
+  padding-bottom: 0%;
+  color: #eff7cf;
+  position: relative;
+  top: 0;
+  text-align: right;
+  right: 0;
+  margin: 0;
+  font-size: 18rem;
+}
+
+.feature-heading-expand {
+  transform: translateX(0%);
+}
+
+.features-heading > h3 {
+  text-align: center;
+  font-size: 4.5rem;
+  font-weight: bold;
+  margin: auto;
+  margin-top: 350px;
+  width: 800px;
+}
+
+.featuresImage {
+  margin-top: 80px;
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.featuresImage > img {
+  height: 600px;
+}
+
+.left-features,
+.right-features {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-features {
+  margin-right: 50px;
+  align-items: flex-end;
+}
+
+.right-features {
+  margin-left: 50px;
+  align-items: flex-start;
+}
+
+.fiture-listTile {
+  height: 100px;
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.fiture-listTile > img {
+  width: 80px;
+  height: 50px;
+  border: none;
+  margin: 0% 20px;
+  object-fit: scale-down;
+  position: relative;
+  left: 0;
+}
+
+.fiture-listTile > .texts {
+  justify-content: space-around;
+  margin: 10px 0;
+  align-items: flex-start;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1200px) {
+  .top-text-features > h1 {
+    font-size: 16rem;
+  }
+  .featuresImage > img {
+    height: 500px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .top-text-features > h1 {
+    font-size: 12rem;
+  }
+
+  .left-features {
+    margin-right: 20px;
+  }
+
+  .right-features {
+    margin-left: 20px;
+  }
+
+  .featuresImage > img {
+    height: 400px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .featuresImage {
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .left-features {
+    margin-right: 0px;
+    align-items: flex-start;
+  }
+
+  .right-features {
+    margin-left: 0px;
+    align-items: flex-start;
+  }
+
+  .featuresImage > img {
+    margin: 100px 100px;
+  }
+}
+
+@media (max-width: 900px) {
+  .top-text-features > h1 {
+    font-size: 12rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .top-text-features > h1 {
+    font-size: 10rem;
+    top: 50px;
+  }
+}
+
+@media (max-width: 700px) {
+  .top-text-features > h1 {
+    font-size: 9rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .left-features {
+    margin-right: 0px;
+    align-items: flex-start;
+  }
+
+  .right-features {
+    margin-left: 0px;
+    align-items: flex-start;
+  }
+
+  .featuresImage {
+    margin: 0;
+    padding: 0;
+  }
+  .featuresImage > img {
+    margin: 100px 100px;
+  }
+  .featuresImage {
+    margin-top: 80px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-text-features > h1 {
+    font-size: 8rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .top-text-features > h1 {
+    font-size: 6.5rem;
+  }
+}
+
+@media (max-width: 410px) {
+  .top-text-features > h1 {
+    margin-top: 25px;
+    font-size: 5rem;
+  }
+
+  .fiture-listTile {
+    width: 100%;
+    margin: 20px 20px 20px 0;
+  }
+
+  .featuresImage > img {
+    margin: 100px 0px;
+  }
+
+  .featuresImage {
+    align-items: center;
+  }
+}
