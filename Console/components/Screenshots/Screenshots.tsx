@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 import Carousel, {
   Dots,
@@ -20,7 +21,6 @@ export default function Screenshots() {
 
       <div className="screenshot-heading">
         <h1>Screenshots</h1>
-        {/* <div className="underline"></div> */}
       </div>
       <div className="screenshots">
         <div
@@ -57,7 +57,16 @@ export default function Screenshots() {
           ]}
         >
           {appScreenshots.map((item, idex, _) => {
-            return <img className="screenshotImages" src={item} />;
+            return (
+              <Image
+                width={300}
+                height={400}
+                className="screenshotImages"
+                loading="eager"
+                priority
+                src={item}
+              />
+            );
           })}
         </Carousel>
         <div
