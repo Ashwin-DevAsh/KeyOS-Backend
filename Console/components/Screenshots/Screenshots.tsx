@@ -62,8 +62,6 @@ export default function Screenshots() {
                 width={300}
                 height={400}
                 className="screenshotImages"
-                loading="eager"
-                priority
                 src={item}
               />
             );
