@@ -16,9 +16,7 @@ class AdminController {
 
     var admin = this.adminService.getAdmin(email, password);
     if (!!admin) {
-      var token = await jwt.sign({ email }, process.env.PRIVATE_KEY, {
-        expiresIn: "24h",
-      });
+      var token = await jwt.sign({ email }, process.env.PRIVATE_KEY);
       res.send({ result: "success", admin, token });
       return;
     } else {
