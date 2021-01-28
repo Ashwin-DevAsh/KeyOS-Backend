@@ -39,6 +39,7 @@ services:
 
   reverse-proxy:
     build: nginx
+    network_mode: "host"
     depends_on: [basicservices, console, admin]
     ports:
       - 80:80
