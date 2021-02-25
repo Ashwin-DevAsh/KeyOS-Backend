@@ -7,13 +7,12 @@ class DevAlertController {
 
   userLaunchedAlert = async (req, res) => {
     var { deviceInfo, config, isLaunched } = req.body;
-
-    this.emailService.sendMail(
-      `${deviceInfo.brand} ${deviceInfo.deviceID}`,
-      `<h1> ${isLaunched ? "Launched" : "Removed"}</h1><br/>` +
-        this.reformatJSON(req.body),
-      this.emailService.devEmail
-    );
+    // this.emailService.sendMail(
+    //   `${deviceInfo.brand} ${deviceInfo.deviceID}`,
+    //   `<h1> ${isLaunched ? "Launched" : "Removed"}</h1><br/>` +
+    //     this.reformatJSON(req.body),
+    //   this.emailService.devEmail
+    // );
     this.databaseService.updateLaunchedInfo(deviceInfo, config, isLaunched);
     res.send({ result: "success" });
   };
