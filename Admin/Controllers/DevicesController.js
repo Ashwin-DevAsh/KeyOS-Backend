@@ -14,6 +14,18 @@ class DevicesController {
     }
   };
 
+  getDevices = async (req, res) => {
+    console.log("getting paginated devices...");
+    try {
+      var {offset,limit} = req.params; 
+      var devices = await this.databaseService.getDevices();
+      res.send({ result: "success", devices });
+    } catch (e) {
+      console.log(e);
+      res.send({ result: "failure" });
+    }
+  };
+
   getDeviceConfig = async (req, res) => {
     console.log("getting devices config...");
     var deviceID = req.params["deviceID"];

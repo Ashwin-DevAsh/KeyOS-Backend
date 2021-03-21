@@ -14,8 +14,17 @@ class DatabaseService {
     var active = await this.getLaunchedDevice(postgres, "true");
     var inactive = await this.getLaunchedDevice(postgres, "false");
     var justInstalled = await this.getInstalledDevice(postgres);
+    postgres.release();
+    return { allDevices, active, inactive, justInstalled };
+  };
 
-    (await postgres).release();
+  getDevices = async () => {
+    var postgres = await this.pool.connect();
+    var allDevices = await this.getAll(postgres);
+    var active = await this.getLaunchedDevice(postgres, "true");
+    var inactive = await this.getLaunchedDevice(postgres, "false");
+    var justInstalled = await this.getInstalledDevice(postgres);
+    postgres.release();
     return { allDevices, active, inactive, justInstalled };
   };
 
