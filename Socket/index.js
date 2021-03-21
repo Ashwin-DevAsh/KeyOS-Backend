@@ -24,6 +24,7 @@ io.on("connection", (client) => {
     }
   });
 
+
   client.on("disconnect", function () {
     databaseService.updateOffline(client.id);
   });
