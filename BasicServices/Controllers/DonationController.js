@@ -10,4 +10,4 @@ class DonationController {
   };
 }
 
-module.exports = DownloadContorller;
+module.exports = DonationController;
