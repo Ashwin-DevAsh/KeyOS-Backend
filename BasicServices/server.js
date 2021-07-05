@@ -25,7 +25,7 @@ app.use(email);
 app.use(QrCode);
 app.use(download);
 app.use(alert);
-// app.use(donation)
+app.use(donation)
 
 app.listen(PORT, () => {
   console.log("Listining on ", PORT);
