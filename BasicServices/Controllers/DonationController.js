@@ -6,7 +6,7 @@ class DonationController {
   createOrder = async(req, res) => {
     const {amount,id} = req.body
     var orderID = await this.donationService.createOrder(amount,id)
-    res.send({orderID,keyID:process.env.key_id})
+    res.send({orderID:orderID.id,keyID:process.env.key_id})
   };
 }
 
