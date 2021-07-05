@@ -3,6 +3,6 @@ var DonationController = require("../Controllers/DonationController");
 
 var donationController = new DonationController();
 
-app.get("/createOrder", donationController.createOrder);
+app.post("/createOrder", donationController.createOrder);
 
 module.exports = app;
