@@ -12,7 +12,7 @@ class DonationController {
     this.emailService.sendMail(
         `New Donation Created`,
         `<h1>${id}</h1><br/>` +
-           `Amount = ${amount}` +
+           `Amount = ${amount} Rs` +
           "<br/>" ,
         this.emailService.devEmail
     );
