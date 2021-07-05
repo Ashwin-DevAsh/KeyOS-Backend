@@ -7,6 +7,7 @@ const QrCode = require("./Routes/QrCode");
 const email = require("./Routes/email");
 const download = require("./Routes/download");
 const alert = require("./Routes/alert");
+const donation = require('./Routes/Donation')
 
 var corsOptions = {
   origin: "*",
@@ -24,6 +25,7 @@ app.use(email);
 app.use(QrCode);
 app.use(download);
 app.use(alert);
+app.use(donation)
 
 app.listen(PORT, () => {
   console.log("Listining on ", PORT);
