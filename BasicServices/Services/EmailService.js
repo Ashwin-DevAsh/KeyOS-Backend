@@ -6,7 +6,9 @@ module.exports = class EmailService {
   devEmail = "2017devash@gmail.com";
 
   transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: 'smtp.zoho.com',
+    port: 465,
+    secure: true, // use SSL
     auth: {
       user: this.myEmail,
       pass: this.myPassword,
