@@ -24,14 +24,6 @@ services:
       - ./Database:/Database
       - ./env:/env
 
-  socket:
-    build: Socket
-    ports:
-      - 7000:8000
-    volumes:
-      - ./Database:/Database
-      - ./env:/env
-
   console:
     build: Console
     ports:
