@@ -1,12 +1,12 @@
 const nodemailer = require("nodemailer");
 
 module.exports = class EmailService {
-  myEmail = "no-replay@keyos.in";
-  myPassword = "DdWsJgP7rgx1";
+  myEmail = "noreplay.keyos@gmail.com";
+  myPassword = "Ashwin@123";
   devEmail = "2017devash@gmail.com";
 
   transporter = nodemailer.createTransport({
-    host: 'smtp.zoho.in',
+    host: 'smtp.gmail.com',
     port: 465,
     secure: true, // use SSL
     auth: {

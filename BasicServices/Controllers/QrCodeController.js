@@ -16,6 +16,7 @@ class QrCodeController {
     this.userPolicies[id] = policyData;
     res.send({ result: "success" });
   };
+  
   getPolicyData = async (req, res) => {
     var id = req.params["id"];
 
