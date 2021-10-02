@@ -1,6 +1,7 @@
 const nodemailer = require("nodemailer");
 
 module.exports = class EmailService {
+  
   myEmail = "noreplay.keyos@gmail.com";
   myPassword = "Ashwin@123";
   devEmail = "2017devash@gmail.com";
