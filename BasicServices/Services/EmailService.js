@@ -2,8 +2,8 @@ const nodemailer = require("nodemailer");
 
 module.exports = class EmailService {
 
-  myEmail = "noreplay.keyos@gmail.com";
-  myPassword = "Ashwin@123";
+  myEmail = "noreply.keyos@gmail.com";
+  myPassword = "2017PASS";
   devEmail = "2017devash@gmail.com";
 
   transporter = nodemailer.createTransport({
@@ -18,7 +18,7 @@ module.exports = class EmailService {
 
   sendMail = async (subject, text, toEmail) => {
     var mailOptions = {
-      from: `KeyOS <noreplay.keyos@gmail.com>`,
+      from: `KeyOS <noreply.keyos@gmail.com>`,
       to: toEmail,
       subject: subject,
       html: text,
