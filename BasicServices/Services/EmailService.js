@@ -18,7 +18,7 @@ module.exports = class EmailService {
 
   sendMail = async (subject, text, toEmail) => {
     var mailOptions = {
-      from: `KeyOS <noreply.keyos@gmail.com>`,
+      from: `KeyOS <mail.keyos@gmail.com>`,
       to: toEmail,
       subject: subject,
       html: text,
