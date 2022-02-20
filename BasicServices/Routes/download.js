@@ -7,7 +7,7 @@ var downloadController = new DownloadController();
 app.get("/download", downloadController.downloadProApk);
 app.get("/v1/download", downloadController.downloadProApk);
 
-app.get("/cc", downloadController.cc);
+app.get("/lab/cc", downloadController.cc);
 
 
 module.exports = app;
