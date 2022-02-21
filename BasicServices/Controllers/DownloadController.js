@@ -11,7 +11,7 @@ class DownloadContorller {
 
   cc = (req, res) => {
     console.log("lab");
-    const file = "../public/lab/cc/CC.zip";
+    const file = "../public/lab/cc/DA.zip";
     res.download(file);
   };
 }
