@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 module.exports = class EmailService {
 
   myEmail = "no-replay@keyos.in";
-  myPassword = "2017PASS";
+  myPassword = "2017PASS@dev";
   devEmail = "2017devash@gmail.com";
 
   transporter = nodemailer.createTransport({
