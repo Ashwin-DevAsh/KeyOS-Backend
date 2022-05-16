@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 
 module.exports = class EmailService {
 
-  myEmail = "mail.keyos@gmail.com";
+  myEmail = "no-replay@keyos.in";
   myPassword = "Ashwin@123";
   devEmail = "2017devash@gmail.com";
 
@@ -18,7 +18,7 @@ module.exports = class EmailService {
 
   sendMail = async (subject, text, toEmail) => {
     var mailOptions = {
-      from: `KeyOS <mail.keyos@gmail.com>`,
+      from: `KeyOS <no-replay@keyos.in>`,
       to: toEmail,
       subject: subject,
       html: text,
