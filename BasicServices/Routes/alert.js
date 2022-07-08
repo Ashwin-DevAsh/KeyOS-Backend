@@ -6,6 +6,6 @@ app.post("/v1/newInstallAlert", devAlertController.newInstallAlert);
 app.post("/v1/userLaunchedAlert", devAlertController.userLaunchedAlert);
 app.post("/v1/proApkDownloadAlert", devAlertController.proApkDownloadAlert);
 app.post("/v1/crashAlert", devAlertController.crashAlert);
-app.post("/v/sendMail",devAlertController.sendMail)
+app.post("/v1/sendMail",devAlertController.sendMail)
 
 module.exports = app;
