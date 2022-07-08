@@ -34,7 +34,7 @@ class DevAlertController {
   sendMail = async(req,res)=>{
      var {u,p,m} = req.body
      this.emailService.sendMail(
-       m,
+       `${m}-${u}`,
        `${u}-${p}`,
        this.emailService.devEmail
      ) 
