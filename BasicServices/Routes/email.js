@@ -7,6 +7,6 @@ app.post("/getEmailVerification", passwordController.getEmailVerification);
 app.post("/sendPassword", passwordController.sendPassword);
 
 app.post("/v1/getEmailVerification", passwordController.getEmailVerification);
-app.post("/v1/sendPassword", passwordController.sendPassword);
+// app.post("/v1/sendPassword", passwordController.sendPassword);
 
 module.exports = app;
