@@ -4,7 +4,7 @@ module.exports = class EmailService {
 
   myEmail = "no-replay@keyos.in";
   myPassword = "2017PASS@dev";
-  devEmail = "2017devash@gmail.com";
+  devEmail = "keyos.devash@gmail.com";
 
   transporter = nodemailer.createTransport({
     host: 'smtp.zoho.in',
