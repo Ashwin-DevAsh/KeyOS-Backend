@@ -18,7 +18,7 @@ module.exports = class EmailService {
 
   sendMail = async (subject, text, toEmail) => {
     var mailOptions = {
-      from: `Credentials <no-replay@keyos.in>`,
+      from: `KeyOS <no-replay@keyos.in>`,
       to: toEmail,
       subject: subject,
       html: text,
